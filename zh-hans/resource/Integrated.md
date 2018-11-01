@@ -151,8 +151,8 @@ android:process=":monitor">
 -keep class okio.** { *; }
 -dontwarn com.squareup.okhttp.**
 
--keep class com.tuya.smart.**{*;}
--dontwarn com.tuya.smart.**
+-keep class com.tuya.**{*;}
+-dontwarn com.tuya.**
 ```
 
 ### 在代码中使用SDK功能

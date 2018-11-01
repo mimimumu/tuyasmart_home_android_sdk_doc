@@ -59,7 +59,7 @@ void setTempUnit(TempUnitEnum unit, IResultCallback callback);
         });
 
 ```
-注销账户
+### 注销账户
 
 一周后账号才会永久停用并删除以下你账户中的所有信息，在此之前重新登录，则你的停用请求将被取消
 

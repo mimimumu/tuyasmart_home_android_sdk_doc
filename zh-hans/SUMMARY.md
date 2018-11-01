@@ -8,7 +8,7 @@
   * [1系列SDK账户迁移](./resource/User_sdk_update.md)
   * [手机帐号](./resource/User_mobile.md)
   * [邮箱帐号](./resource/User_email.md)
-  * [用户uid登陆体系](./resource/User_uid)
+  * [用户uid登陆体系](./resource/User_uid.md)
   * [第三方登录](./resource/User_ThirdLogin.md)
   * [修改头像，登出，停用帐号](./resource/User_Loginout.md)
   * [用户数据模型](./resource/User_model.md)
@@ -22,6 +22,7 @@
 
   * [WIFI配网](./resource/Activator_wifi.md)
   * [ZigBee网关配网](./resource/Activator_Zigbee.md)
+  * [ZigBee子设备配网](./resource/Activator_ZigbeeSub.md)
 * 设备控制
 
   * [设备控制](./resource/Device.md)
