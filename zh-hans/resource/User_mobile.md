@@ -1,19 +1,21 @@
-### 用户手机验证码登陆
+# 手机账号体系
 
 涂鸦智能提供手机验证码登陆体系。
-#### (1)手机验证码登陆
-##### 【描述】
+## 一、手机验证码登陆
 
-手机验证码登陆，支持国内手机验证码登陆。
-##### 【代码调用】
+手机验证码登录功能，需要先调用验证码发送接口，发送验证码。再调用手机验证码验证接口。将收到的验证码填入对应的参数中。
+
+**接口描述**
 
 ```java
-/**获取手机验证码
+/**
+* 获取手机验证码
 * @param countryCode   国家区号
 * @param phoneNumber   手机号码
 */
 TuyaHomeSdk.getUserInstance().getValidateCode(String countryCode, String phoneNumber, final IValidateCallback callback);
-/** 手机验证码登陆
+/** 
+* 手机验证码登陆
 * @param countryCode 国家区号
 * @param phone       电话
 * @param code        验证码
@@ -22,7 +24,7 @@ TuyaHomeSdk.getUserInstance().getValidateCode(String countryCode, String phoneNu
 TuyaHomeSdk.getUserInstance().loginWithPhone(String countryCode, String phone, String code, final ILoginCallback callback)
 ```
 
-##### 【代码范例】
+**代码范例**
 
 ```java
 //获取手机验证码
@@ -49,32 +51,34 @@ TuyaHomeSdk.getUserInstance().loginWithPhone("86", "13355555555", "123456", new 
     }
 });
 ```
-### 用户手机密码登陆
+## 二、用户手机密码登陆
 
 涂鸦智能提供手机密码登陆体系。
-#### (1)手机密码注册
-##### 【描述】
-
+### 1. 手机密码注册
 手机密码注册。支持国内外手机注册。
-##### 【方法调用】
+
+**接口描述：**
 
 ```java
-//获取手机验证码
+/**
+* 获取手机验证码
 * @param countryCode   国家区号
 * @param phoneNumber   手机号码
+*/
 TuyaHomeSdk.getUserInstance().getValidateCode(String countryCode, String phoneNumber, final IValidateCallback callback);
 
-//注册手机密码账户
+/** 
+* 注册手机密码账户
 * @param countryCode 国家区号
 * @param phone       手机密码
 * @param passwd      登陆密码
 * @param callback    登陆回调接口
+*/
 TuyaHomeSdk.getUserInstance().registerAccountWithPhone(final String countryCode, final String phone, final String passwd, final String code, final IRegisterCallback callback);
 ```
-##### 【代码范例】
+**代码范例**
 
 ```java
-
 //获取手机验证码
 TuyaHomeSdk.getUserInstance().getValidateCode("86","13666666666", new IValidateCallback(){
     @Override
@@ -99,21 +103,21 @@ TuyaHomeSdk.getUserInstance().registerAccountWithPhone("86","13666666666","12345
     }
 });
 ```
-#### (2)手机密码登陆
-##### 【描述】
+### 2. 手机密码登陆
+**接口描述**
 
-手机密码登陆。
-##### 【方法调用】
-
+使用手机号码和密码登陆。
 ```java
-//手机密码登陆
+/**
+* 手机密码登陆
 * @param countryCode 国家区号
 * @param phone       手机密码
 * @param passwd      登陆密码
 * @param callback    登陆回调接口
+*/
 TuyaHomeSdk.getUserInstance().loginWithPhonePassword(String countryCode, String phone, String passwd, final ILoginCallback callback);
 ```
-##### 【代码范例】
+**代码范例**
 
 ```java
 //手机密码登陆
@@ -129,28 +133,30 @@ TuyaHomeSdk.getUserInstance().loginWithPhonePassword("86", "13666666666", "12345
     }
 });
 ```
-#### (3)手机重置密码
-##### 【描述】
+### 3. 手机重置密码
+**接口描述**
 
-手机密码登陆 重置密码。
-##### 【方法调用】
-
+手机账号重置密码。
 ```java
-//获取手机验证码
+/**
+* 获取手机验证码
 * @param countryCode   国家区号
 * @param phoneNumber   手机号码
+*/
 TuyaHomeSdk.getUserInstance().getValidateCode(String countryCode, String phoneNumber, final IValidateCallback callback);
 
-//重置密码
+/**
+* 重置密码
 * @param countryCode 国家区号
 * @param phone       手机号码
 * @param code        手机验证码
 * @param newPasswd   新密码
 * @param callback    重置手机密码回调接口
+*/
 TuyaHomeSdk.getUserInstance().resetPhonePassword(final String countryCode, final String phone, final String code, final String newPasswd, final IResetPasswordCallback callback);
 
 ```
-##### 【代码范例】
+**代码范例**
 
 ```java
 //手机获取验证码

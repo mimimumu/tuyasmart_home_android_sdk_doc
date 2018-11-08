@@ -12,6 +12,7 @@
   * [第三方登录](./resource/User_ThirdLogin.md)
   * [修改头像，登出，停用帐号](./resource/User_Loginout.md)
   * [用户数据模型](./resource/User_model.md)
+  * [session失效监听](./resource/User_Session.md)
 * 家庭管理
 
   * [家庭操作](./resource/HomeOption.md)
@@ -36,7 +37,7 @@
 * [定时任务](./resource/Timer.md)
 * [群组管理](./resource/Group.md)
 * 智能场景
-	* [智能场景](./resource/SmartScene_Manager.md)
+  * [智能场景](./resource/SmartScene_Manager.md)
 * [消息中心](./resource/Message.md)
 * [意见反馈](./resource/Feedback.md)
 * [集成Push](./resource/Push.md)

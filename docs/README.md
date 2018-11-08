@@ -10,3 +10,7 @@
 - 账户体系（手机号、邮箱的注册、登录、重置密码等通用的账户功能）
 - 家庭体系 （家庭管理，房间管理等功能）
 - 涂鸦云HTTP API接口封装 (参见[涂鸦云api调用](https://docs.tuya.com/cn/cloudapi/appAPI/index.html))
+
+
+
+更多文档请参考：[涂鸦智能Android SDK](https://tuyainc.github.io/tuyasmart_home_android_sdk_doc/)

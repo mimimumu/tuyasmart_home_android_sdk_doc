@@ -1,7 +1,7 @@
-### 数据模型
+# 用户数据模型
 用户相关的数据模型。
 
-#### User
+## User
 * nickName  昵称
 * phoneCode 国家区号
 * mobile 手机号码
@@ -10,5 +10,3 @@
 * uid 用户唯一标识符
 * sid 用户登录产生唯一标识id.
 * headPic 用户头像路径
-
-----

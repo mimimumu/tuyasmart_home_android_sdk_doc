@@ -246,6 +246,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.8" data-path="User_Session.html">
+            
+                <a href="User_Session.html">
+            
+                    
+                    session失效监听
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -677,9 +690,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x9646;">&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x9646;</h3>
-<h4 id="twitter&#x767B;&#x9646;">Twitter&#x767B;&#x9646;</h4>
-<h5 id="&#x3010;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3011;">&#x3010;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3011;</h5>
+                                <h1 id="&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x9646;">&#x7B2C;&#x4E09;&#x65B9;&#x767B;&#x9646;</h1>
+<h2 id="&#x4E00;&#x3001;twitter&#x767B;&#x9646;">&#x4E00;&#x3001;Twitter&#x767B;&#x9646;</h2>
+<p><strong>&#x63A5;&#x53E3;&#x8BF4;&#x660E;</strong></p>
 <pre><code class="lang-java"><span class="hljs-comment">/**
 * <span class="hljs-doctag">@param</span> countryCode &#x56FD;&#x5BB6;&#x533A;&#x53F7;
 * <span class="hljs-doctag">@param</span> key         twitter&#x6388;&#x6743;&#x767B;&#x5F55;&#x83B7;&#x53D6;&#x7684;key
@@ -688,8 +701,8 @@
 
 TuyaHomeSdk.getUserInstance().loginByTwitter(String countryCode, String key, String secret, ILoginCallback callback);
 </code></pre>
-<h4 id="qq&#x767B;&#x9646;">QQ&#x767B;&#x9646;</h4>
-<h5 id="&#x3010;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3011;">&#x3010;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3011;</h5>
+<h2 id="&#x4E8C;&#x3001;qq&#x767B;&#x9646;">&#x4E8C;&#x3001;QQ&#x767B;&#x9646;</h2>
+<p><strong>&#x63A5;&#x53E3;&#x8BF4;&#x660E;</strong></p>
 <pre><code class="lang-java"><span class="hljs-comment">/**
 * <span class="hljs-doctag">@param</span> countryCode &#x56FD;&#x5BB6;&#x533A;&#x53F7;
 * <span class="hljs-doctag">@param</span> userId         QQ&#x6388;&#x6743;&#x767B;&#x5F55;&#x83B7;&#x53D6;&#x7684;userId
@@ -698,15 +711,16 @@ TuyaHomeSdk.getUserInstance().loginByTwitter(String countryCode, String key, Str
 
 TuyaHomeSdk.getUserInstance().loginByQQ(String countryCode, String userId, String accessToken, ILoginCallback callback);
 </code></pre>
-<h4 id="&#x5FAE;&#x4FE1;&#x767B;&#x9646;">&#x5FAE;&#x4FE1;&#x767B;&#x9646;</h4>
-<h5 id="&#x3010;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3011;">&#x3010;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3011;</h5>
+<h2 id="&#x4E09;&#x3001;&#x5FAE;&#x4FE1;&#x767B;&#x9646;">&#x4E09;&#x3001;&#x5FAE;&#x4FE1;&#x767B;&#x9646;</h2>
+<p><strong>&#x63A5;&#x53E3;&#x8BF4;&#x660E;</strong></p>
 <pre><code class="lang-java"><span class="hljs-comment">/**
  *  <span class="hljs-doctag">@param</span> countryCode &#x56FD;&#x5BB6;&#x533A;&#x53F7;
  *  <span class="hljs-doctag">@param</span> code &#x5FAE;&#x4FE1;&#x6388;&#x6743;&#x767B;&#x5F55;&#x83B7;&#x53D6;&#x7684;code
  */</span>
 TuyaHomeSdk.getUserInstance().loginByWechat(String countryCode, String code, ILoginCallback callback);
 </code></pre>
-<h4 id="facebook-&#x767B;&#x9646;">Facebook &#x767B;&#x9646;</h4>
+<h2 id="&#x56DB;&#x3001;facebook-&#x767B;&#x9646;">&#x56DB;&#x3001;Facebook &#x767B;&#x9646;</h2>
+<p><strong>&#x63A5;&#x53E3;&#x8BF4;&#x660E;</strong></p>
 <pre><code class="lang-java"><span class="hljs-comment">/**
  *  <span class="hljs-doctag">@param</span> countryCode &#x56FD;&#x5BB6;&#x533A;&#x53F7;
  *  <span class="hljs-doctag">@param</span> token facebook&#x6388;&#x6743;&#x767B;&#x5F55;&#x83B7;&#x53D6;&#x7684;token
@@ -756,7 +770,7 @@ TuyaHomeSdk.getUserInstance().loginByFacebook(String countryCode, String token, 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"第三方登录","level":"1.5.5","depth":2,"next":{"title":"修改头像，登出，停用帐号","level":"1.5.6","depth":2,"path":"resource/User_Loginout.md","ref":"./resource/User_Loginout.md","articles":[]},"previous":{"title":"用户uid登陆体系","level":"1.5.4","depth":2,"path":"resource/User_uid.md","ref":"./resource/User_uid.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/User_ThirdLogin.md","mtime":"2018-10-30T03:24:20.025Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-01T13:50:34.565Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"第三方登录","level":"1.5.5","depth":2,"next":{"title":"修改头像，登出，停用帐号","level":"1.5.6","depth":2,"path":"resource/User_Loginout.md","ref":"./resource/User_Loginout.md","articles":[]},"previous":{"title":"用户uid登陆体系","level":"1.5.4","depth":2,"path":"resource/User_uid.md","ref":"./resource/User_uid.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/User_ThirdLogin.md","mtime":"2018-11-08T06:49:20.617Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-08T06:56:34.115Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
@@ -764,10 +778,6 @@ TuyaHomeSdk.getUserInstance().loginByFacebook(String countryCode, String token, 
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>

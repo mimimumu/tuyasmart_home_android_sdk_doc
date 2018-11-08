@@ -1,8 +1,8 @@
-###  第三方登陆
+#  第三方登陆
 
-#### Twitter登陆
+## 一、Twitter登陆
 
-##### 【方法调用】
+**接口说明**
 
 ```java
 /**
@@ -15,9 +15,9 @@ TuyaHomeSdk.getUserInstance().loginByTwitter(String countryCode, String key, Str
 ```
 
 
-#### QQ登陆
+## 二、QQ登陆
 
-##### 【方法调用】
+**接口说明**
 
 ```java
 /**
@@ -29,9 +29,9 @@ TuyaHomeSdk.getUserInstance().loginByTwitter(String countryCode, String key, Str
 TuyaHomeSdk.getUserInstance().loginByQQ(String countryCode, String userId, String accessToken, ILoginCallback callback);
 ```
 
-#### 微信登陆
+## 三、微信登陆
 
-##### 【方法调用】
+**接口说明**
 
 ```java
 /**
@@ -42,7 +42,9 @@ TuyaHomeSdk.getUserInstance().loginByWechat(String countryCode, String code, ILo
 
 ```
 
-#### Facebook 登陆
+## 四、Facebook 登陆
+**接口说明**
+
 
 ```java
 /**

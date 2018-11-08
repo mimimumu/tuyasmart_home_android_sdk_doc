@@ -246,6 +246,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.5.8" data-path="User_Session.html">
+            
+                <a href="User_Session.html">
+            
+                    
+                    session失效监听
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -677,28 +690,29 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h3 id="&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x767B;&#x9646;">&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x767B;&#x9646;</h3>
+                                <h1 id="&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x8D26;&#x53F7;&#x4F53;&#x7CFB;">&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x8D26;&#x53F7;&#x4F53;&#x7CFB;</h1>
 <p>&#x6D82;&#x9E26;&#x667A;&#x80FD;&#x63D0;&#x4F9B;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x767B;&#x9646;&#x4F53;&#x7CFB;&#x3002;</p>
-<h4 id="1-&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x6CE8;&#x518C;">(1) &#x7528;&#x6237;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x6CE8;&#x518C;</h4>
-<h5 id="&#x3010;&#x63CF;&#x8FF0;&#x3011;">&#x3010;&#x63CF;&#x8FF0;&#x3011;</h5>
+<h2 id="&#x4E00;&#x3001;&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x6CE8;&#x518C;">&#x4E00;&#x3001;&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x6CE8;&#x518C;</h2>
+<p><strong>&#x63A5;&#x53E3;&#x63CF;&#x8FF0;</strong></p>
 <p>&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x6CE8;&#x518C;&#x3002;&#x652F;&#x6301;&#x56FD;&#x5185;&#x5916;&#x90AE;&#x7BB1;&#x6CE8;&#x518C;&#x3002;</p>
-<h5 id="&#x3010;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3011;">&#x3010;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3011;</h5>
-<pre><code class="lang-java"><span class="hljs-comment">//&#x90AE;&#x7BB1;&#x6CE8;&#x518C;&#x83B7;&#x53D6;&#x9A8C;&#x8BC1;&#x7801;</span>
-<span class="hljs-comment">/**
- * &#x6CE8;&#x518C;&#x83B7;&#x53D6;&#x90AE;&#x7BB1;&#x9A8C;&#x8BC1;&#x7801;
- * <span class="hljs-doctag">@param</span> email
- * <span class="hljs-doctag">@param</span> callback
- */</span>
+<pre><code class="lang-java"><span class="hljs-comment">/**
+* &#x90AE;&#x7BB1;&#x6CE8;&#x518C;&#x83B7;&#x53D6;&#x9A8C;&#x8BC1;&#x7801;
+* &#x6CE8;&#x518C;&#x83B7;&#x53D6;&#x90AE;&#x7BB1;&#x9A8C;&#x8BC1;&#x7801;
+* <span class="hljs-doctag">@param</span> email
+* <span class="hljs-doctag">@param</span> callback
+*/</span>
 <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getRegisterEmailValidateCode</span><span class="hljs-params">(String countryCode, String email, IResultCallback callback)</span></span>;
 
-<span class="hljs-comment">//&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x6CE8;&#x518C;</span>
-* <span class="hljs-meta">@param</span> countryCode &#x56FD;&#x5BB6;&#x533A;&#x53F7;
-* <span class="hljs-meta">@param</span> email       &#x90AE;&#x7BB1;&#x8D26;&#x6237;
-* <span class="hljs-meta">@param</span> passwd      &#x767B;&#x9646;&#x5BC6;&#x7801;
-* <span class="hljs-meta">@param</span> callback    &#x90AE;&#x7BB1;&#x6CE8;&#x518C;&#x56DE;&#x8C03;&#x63A5;&#x53E3;
+<span class="hljs-comment">/**
+* &#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x6CE8;&#x518C;
+* <span class="hljs-doctag">@param</span> countryCode &#x56FD;&#x5BB6;&#x533A;&#x53F7;
+* <span class="hljs-doctag">@param</span> email       &#x90AE;&#x7BB1;&#x8D26;&#x6237;
+* <span class="hljs-doctag">@param</span> passwd      &#x767B;&#x9646;&#x5BC6;&#x7801;
+* <span class="hljs-doctag">@param</span> callback    &#x90AE;&#x7BB1;&#x6CE8;&#x518C;&#x56DE;&#x8C03;&#x63A5;&#x53E3;
+*/</span>
 TuyaHomeSdk.getUserInstance().registerAccountWithEmail(<span class="hljs-keyword">final</span> String countryCode, <span class="hljs-keyword">final</span> String email, <span class="hljs-keyword">final</span> String passwd, <span class="hljs-keyword">final</span> IRegisterCallback callback);
 </code></pre>
-<h5 id="&#x3010;&#x4EE3;&#x7801;&#x8303;&#x4F8B;&#x3011;">&#x3010;&#x4EE3;&#x7801;&#x8303;&#x4F8B;&#x3011;</h5>
+<p><strong>&#x4EE3;&#x7801;&#x8303;&#x4F8B;</strong></p>
 <pre><code class="lang-java"><span class="hljs-comment">//&#x6CE8;&#x518C;&#x83B7;&#x53D6;&#x90AE;&#x7BB1;&#x9A8C;&#x8BC1;&#x7801;</span>
 TuyaHomeSdk.getUserInstance().getRegisterEmailValidateCode(<span class="hljs-string">&quot;86&quot;</span>,<span class="hljs-string">&quot;123456@123.com&quot;</span>,<span class="hljs-keyword">new</span> IResultCallback() {
     <span class="hljs-meta">@Override</span>
@@ -723,20 +737,20 @@ TuyaHomeSdk.getUserInstance().registerAccountWithEmail(<span class="hljs-string"
     }
 });
 </code></pre>
-<h5 id="&#x3010;&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#x3011;">&#x3010;&#x6CE8;&#x610F;&#x4E8B;&#x9879;&#x3011;</h5>
-<ul>
-<li>&#x8D26;&#x6237;&#x4E00;&#x65E6;&#x6CE8;&#x518C;&#x5230;&#x4E00;&#x4E2A;&#x56FD;&#x5BB6;&#xFF0C;&#x76EE;&#x524D;&#x6570;&#x636E;&#x65E0;&#x6CD5;&#x8FC1;&#x79FB;&#x5176;&#x4ED6;&#x56FD;&#x5BB6;&#x3002;</li>
-</ul>
-<h4 id="2-&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x767B;&#x9646;">(2) &#x7528;&#x6237;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x767B;&#x9646;</h4>
-<h5 id="&#x3010;&#x63CF;&#x8FF0;&#x3011;">&#x3010;&#x63CF;&#x8FF0;&#x3011;</h5>
+<blockquote>
+<p>&#x6CE8;&#x610F;&#x4E8B;&#x9879;   &#x8D26;&#x6237;&#x4E00;&#x65E6;&#x6CE8;&#x518C;&#x5230;&#x4E00;&#x4E2A;&#x56FD;&#x5BB6;&#xFF0C;&#x76EE;&#x524D;&#x6570;&#x636E;&#x65E0;&#x6CD5;&#x8FC1;&#x79FB;&#x5176;&#x4ED6;&#x56FD;&#x5BB6;&#x3002;</p>
+</blockquote>
+<h2 id="&#x4E8C;&#x3001;&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x767B;&#x9646;">&#x4E8C;&#x3001;&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x767B;&#x9646;</h2>
+<p><strong>&#x63A5;&#x53E3;&#x63CF;&#x8FF0;</strong></p>
 <p>&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x767B;&#x9646;</p>
-<h5 id="&#x3010;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3011;">&#x3010;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3011;</h5>
-<pre><code class="lang-java"><span class="hljs-comment">//&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x767B;&#x9646;</span>
-* <span class="hljs-meta">@param</span> email  &#x90AE;&#x7BB1;&#x8D26;&#x6237;
-* <span class="hljs-meta">@param</span> passwd &#x767B;&#x9646;&#x5BC6;&#x7801;
+<pre><code class="lang-java"><span class="hljs-comment">/** 
+* &#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x767B;&#x9646;
+* <span class="hljs-doctag">@param</span> email  &#x90AE;&#x7BB1;&#x8D26;&#x6237;
+* <span class="hljs-doctag">@param</span> passwd &#x767B;&#x9646;&#x5BC6;&#x7801;
+*/</span>
 TuyaHomeSdk.getUserInstance().loginWithEmail(String countryCode, String email, String passwd, <span class="hljs-keyword">final</span> ILoginCallback callback);
 </code></pre>
-<h5 id="&#x3010;&#x4EE3;&#x7801;&#x8303;&#x4F8B;&#x3011;">&#x3010;&#x4EE3;&#x7801;&#x8303;&#x4F8B;&#x3011;</h5>
+<p><strong>&#x4EE3;&#x7801;&#x8303;&#x4F8B;</strong></p>
 <pre><code class="lang-java"><span class="hljs-comment">//&#x90AE;&#x7BB1;&#x5BC6;&#x7801;&#x767B;&#x9646;</span>
 TuyaHomeSdk.getUserInstance().loginWithEmail(<span class="hljs-string">&quot;86&quot;</span>, <span class="hljs-string">&quot;123456@123.com&quot;</span>, <span class="hljs-string">&quot;123123&quot;</span>, <span class="hljs-keyword">new</span> ILoginCallback() {
     <span class="hljs-meta">@Override</span>
@@ -750,24 +764,28 @@ TuyaHomeSdk.getUserInstance().loginWithEmail(<span class="hljs-string">&quot;86&
     }
 });
 </code></pre>
-<h4 id="3-&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;">(3) &#x7528;&#x6237;&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</h4>
-<h5 id="&#x3010;&#x63CF;&#x8FF0;&#x3011;">&#x3010;&#x63CF;&#x8FF0;&#x3011;</h5>
+<h2 id="&#x4E09;&#x3001;-&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;">&#x4E09;&#x3001; &#x7528;&#x6237;&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</h2>
+<p><strong>&#x63A5;&#x53E3;&#x63CF;&#x8FF0;</strong></p>
 <p>&#x7528;&#x6237;&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</p>
-<h5 id="&#x3010;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3011;">&#x3010;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3011;</h5>
-<pre><code class="lang-java"><span class="hljs-comment">//&#x90AE;&#x7BB1;&#x627E;&#x56DE;&#x5BC6;&#x7801;&#xFF0C;&#x83B7;&#x53D6;&#x9A8C;&#x8BC1;&#x7801;</span>
-* <span class="hljs-meta">@param</span> countryCode &#x56FD;&#x5BB6;&#x533A;&#x53F7;
-* <span class="hljs-meta">@param</span> email       &#x90AE;&#x7BB1;&#x8D26;&#x6237;
-* <span class="hljs-meta">@param</span> callback    &#x83B7;&#x53D6;&#x9A8C;&#x8BC1;&#x7801;&#x56DE;&#x8C03;&#x63A5;&#x53E3;
+<pre><code class="lang-java"><span class="hljs-comment">/**
+* &#x90AE;&#x7BB1;&#x627E;&#x56DE;&#x5BC6;&#x7801;&#xFF0C;&#x83B7;&#x53D6;&#x9A8C;&#x8BC1;&#x7801;
+* <span class="hljs-doctag">@param</span> countryCode &#x56FD;&#x5BB6;&#x533A;&#x53F7;
+* <span class="hljs-doctag">@param</span> email       &#x90AE;&#x7BB1;&#x8D26;&#x6237;
+* <span class="hljs-doctag">@param</span> callback    &#x83B7;&#x53D6;&#x9A8C;&#x8BC1;&#x7801;&#x56DE;&#x8C03;&#x63A5;&#x53E3;
+*/</span>
 TuyaHomeSdk.getUserInstance().getEmailValidateCode(String countryCode, <span class="hljs-keyword">final</span> String email, <span class="hljs-keyword">final</span> IValidateCallback callback);
 
-<span class="hljs-comment">//&#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</span>
-* <span class="hljs-meta">@param</span> email     &#x7528;&#x6237;&#x8D26;&#x6237;
-* <span class="hljs-meta">@param</span> emailCode &#x90AE;&#x7BB1;&#x9A8C;&#x8BC1;&#x7801;
-* <span class="hljs-meta">@param</span> passwd    &#x65B0;&#x5BC6;&#x7801;
-* <span class="hljs-meta">@param</span> callback  &#x91CD;&#x7F6E;&#x5BC6;&#x7801;&#x56DE;&#x8C03;&#x63A5;&#x53E3;
-TuyaHomeSdk.getUserInstance().resetEmailPassword(<span class="hljs-keyword">final</span> String email, <span class="hljs-keyword">final</span> String emailCode, <span class="hljs-keyword">final</span> String passwd, <span class="hljs-keyword">final</span> IResetPasswordCallback callback);
+<span class="hljs-comment">/**
+* &#x90AE;&#x7BB1;&#x91CD;&#x7F6E;&#x5BC6;&#x7801;
+* <span class="hljs-doctag">@countryCode</span> &#x56FD;&#x5BB6;&#x533A;&#x53F7;
+* <span class="hljs-doctag">@param</span> email     &#x7528;&#x6237;&#x8D26;&#x6237;
+* <span class="hljs-doctag">@param</span> emailCode &#x90AE;&#x7BB1;&#x9A8C;&#x8BC1;&#x7801;
+* <span class="hljs-doctag">@param</span> passwd    &#x65B0;&#x5BC6;&#x7801;
+* <span class="hljs-doctag">@param</span> callback  &#x91CD;&#x7F6E;&#x5BC6;&#x7801;&#x56DE;&#x8C03;&#x63A5;&#x53E3;
+*/</span>
+TuyaHomeSdk.getUserInstance().resetEmailPassword(String countryCode, <span class="hljs-keyword">final</span> String email, <span class="hljs-keyword">final</span> String emailCode, <span class="hljs-keyword">final</span> String passwd, <span class="hljs-keyword">final</span> IResetPasswordCallback callback);
 </code></pre>
-<h5 id="&#x3010;&#x4EE3;&#x7801;&#x8303;&#x4F8B;&#x3011;">&#x3010;&#x4EE3;&#x7801;&#x8303;&#x4F8B;&#x3011;</h5>
+<p><strong>&#x4EE3;&#x7801;&#x8303;&#x4F8B;</strong></p>
 <pre><code class="lang-java"><span class="hljs-comment">//&#x83B7;&#x53D6;&#x90AE;&#x7BB1;&#x9A8C;&#x8BC1;&#x7801;</span>
 TuyaHomeSdk.getUserInstance().getEmailValidateCode(<span class="hljs-string">&quot;86&quot;</span>, <span class="hljs-string">&quot;123456@123.com&quot;</span>, <span class="hljs-keyword">new</span> IValidateCallback() {
     <span class="hljs-meta">@Override</span>
@@ -780,7 +798,7 @@ TuyaHomeSdk.getUserInstance().getEmailValidateCode(<span class="hljs-string">&qu
     }
 });
 <span class="hljs-comment">//&#x91CD;&#x7F6E;&#x5BC6;&#x7801;</span>
-TuyaHomeSdk.getUserInstance().resetEmailPassword(<span class="hljs-string">&quot;86&quot;</span>, <span class="hljs-string">&quot;123456@123.com&quot;</span>, <span class="hljs-string">&quot;123123&quot;</span>, <span class="hljs-keyword">new</span> IResetPasswordCallback() {
+TuyaHomeSdk.getUserInstance().resetEmailPassword(<span class="hljs-string">&quot;86&quot;</span>, <span class="hljs-string">&quot;123456@123.com&quot;</span>, <span class="hljs-string">&quot;123123&quot;</span>&#xFF0C;<span class="hljs-string">&quot;a12345&quot;</span>, <span class="hljs-keyword">new</span> IResetPasswordCallback() {
     <span class="hljs-meta">@Override</span>
     <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onSuccess</span><span class="hljs-params">()</span> </span>{
         Toast.makeText(mContext, <span class="hljs-string">&quot;&#x627E;&#x56DE;&#x5BC6;&#x7801;&#x6210;&#x529F;&quot;</span>, Toast.LENGTH_SHORT).show();
@@ -834,7 +852,7 @@ TuyaHomeSdk.getUserInstance().resetEmailPassword(<span class="hljs-string">&quot
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"邮箱帐号","level":"1.5.3","depth":2,"next":{"title":"用户uid登陆体系","level":"1.5.4","depth":2,"path":"resource/User_uid.md","ref":"./resource/User_uid.md","articles":[]},"previous":{"title":"手机帐号","level":"1.5.2","depth":2,"path":"resource/User_mobile.md","ref":"./resource/User_mobile.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/User_email.md","mtime":"2018-10-30T03:20:10.585Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-01T13:50:34.565Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"邮箱帐号","level":"1.5.3","depth":2,"next":{"title":"用户uid登陆体系","level":"1.5.4","depth":2,"path":"resource/User_uid.md","ref":"./resource/User_uid.md","articles":[]},"previous":{"title":"手机帐号","level":"1.5.2","depth":2,"path":"resource/User_mobile.md","ref":"./resource/User_mobile.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/User_email.md","mtime":"2018-11-08T06:42:19.610Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-08T06:56:34.115Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>
@@ -842,10 +860,6 @@ TuyaHomeSdk.getUserInstance().resetEmailPassword(<span class="hljs-string">&quot
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
-    
-        
-        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
