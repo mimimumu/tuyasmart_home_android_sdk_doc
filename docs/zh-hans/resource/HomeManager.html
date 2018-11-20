@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="HomeMember.html" />
+    <link rel="next" href="HomeOption.html" />
     
-    
-    <link rel="prev" href="HomeOption.html" />
     
 
     </head>
@@ -278,12 +276,12 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="HomeOption.html">
+        <li class="chapter active" data-level="1.6.1" data-path="HomeManager.html">
             
-                <a href="HomeOption.html">
+                <a href="HomeManager.html">
             
                     
-                    家庭操作
+                    家庭管理
             
                 </a>
             
@@ -291,12 +289,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6.2" data-path="HomeManager.html">
+        <li class="chapter " data-level="1.6.2" data-path="HomeOption.html">
             
-                <a href="HomeManager.html">
+                <a href="HomeOption.html">
             
                     
-                    家庭管理
+                    家庭操作
             
                 </a>
             
@@ -693,13 +691,6 @@
                                 <h3 id="&#x5BB6;&#x5EAD;&#x7BA1;&#x7406;&#x7C7B;">&#x5BB6;&#x5EAD;&#x7BA1;&#x7406;&#x7C7B;</h3>
 <p>ITuyaHomeManager &#x63D0;&#x4F9B;&#x4E86;&#x521B;&#x5EFA;&#x5BB6;&#x5EAD;&#x3001;&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x5217;&#x8868;&#x4EE5;&#x53CA;&#x76D1;&#x542C;&#x5BB6;&#x5EAD;&#x76F8;&#x5173;&#x7684;&#x53D8;&#x66F4;</p>
 <p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;TuyaHomeSdk.getHomeManagerInstance()&#x83B7;&#x53D6;</p>
-<h4 id="&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x5217;&#x8868;">&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x5217;&#x8868;</h4>
-<pre><code class="lang-java">
-<span class="hljs-comment">/**
-     * <span class="hljs-doctag">@param</span> callback
-     */</span>
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">queryHomeList</span><span class="hljs-params">(ITuyaGetHomeListCallback callback)</span></span>;
-</code></pre>
 <h4 id="&#x521B;&#x5EFA;&#x5BB6;&#x5EAD;">&#x521B;&#x5EFA;&#x5BB6;&#x5EAD;</h4>
 <pre><code class="lang-java"> <span class="hljs-comment">/**
      *
@@ -711,6 +702,13 @@
      * <span class="hljs-doctag">@param</span> callback
      */</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">createHome</span><span class="hljs-params">(String name, <span class="hljs-keyword">double</span> lon, <span class="hljs-keyword">double</span> lat, String geoName, List&lt;String&gt; rooms, ITuyaHomeResultCallback callback)</span></span>;
+</code></pre>
+<h4 id="&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x5217;&#x8868;">&#x83B7;&#x53D6;&#x5BB6;&#x5EAD;&#x5217;&#x8868;</h4>
+<pre><code class="lang-java">
+<span class="hljs-comment">/**
+     * <span class="hljs-doctag">@param</span> callback
+     */</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">queryHomeList</span><span class="hljs-params">(ITuyaGetHomeListCallback callback)</span></span>;
 </code></pre>
 <h4 id="&#x5BB6;&#x5EAD;&#x4FE1;&#x606F;&#x7684;&#x53D8;&#x66F4;">&#x5BB6;&#x5EAD;&#x4FE1;&#x606F;&#x7684;&#x53D8;&#x66F4;</h4>
 <pre><code class="lang-java">
@@ -766,7 +764,7 @@
 
     <span class="hljs-comment">/**
      *
-     * &#x624B;&#x673A;&#x8FDE;&#x63A5;&#x6D82;&#x9E26;&#x4E91;&#x670D;&#x52A1;&#x5668;&#x6210;&#x529F;&#xFF0C;&#x7279;&#x522B;&#x6CE8;&#x610F;&#x63A5;&#x6536;&#x5230;&#x6B64;&#x901A;&#x77E5;&#xFF0C;&#x5728;&#x4E00;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x672C;&#x5730;&#x6570;&#x636E;&#x4E0E;&#x670D;&#x52A1;&#x7AEF;&#x6570;&#x636E;&#x53EF;&#x80FD;&#x4F1A;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x7528;Home&#x4E0B;&#x9762;getHomeDetail&#x63A5;&#x53E3;&#x91CD;&#x65B0;&#x5237;&#x65B0;&#x6570;&#x636E;&#x3002;
+     * &#x624B;&#x673A;&#x8FDE;&#x63A5;&#x6D82;&#x9E26;&#x4E91;&#x670D;&#x52A1;&#x5668;&#x6210;&#x529F;&#xFF0C;&#x7279;&#x522B;&#x6CE8;&#x610F;&#x63A5;&#x6536;&#x5230;&#x6B64;&#x901A;&#x77E5;&#xFF0C;&#x672C;&#x5730;&#x6570;&#x636E;&#x4E0E;&#x670D;&#x52A1;&#x7AEF;&#x6570;&#x636E;&#x53EF;&#x80FD;&#x4F1A;&#x4E0D;&#x4E00;&#x81F4;&#x6216;&#x8005;&#x65E0;&#x6CD5;&#x63A7;&#x5236;&#x8BBE;&#x5907;&#xFF0C;&#x53EF;&#x4EE5;&#x8C03;&#x7528;Home&#x4E0B;&#x9762;getHomeDetail&#x63A5;&#x53E3;&#x91CD;&#x65B0;&#x521D;&#x59CB;&#x5316;&#x6570;&#x636E;&#x3002;
      *
      */</span>
     <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">onServerConnectSuccess</span><span class="hljs-params">()</span></span>;
@@ -875,12 +873,8 @@
 
             
                 
-                <a href="HomeOption.html" class="navigation navigation-prev " aria-label="Previous page: 家庭操作">
-                    <i class="fa fa-angle-left"></i>
-                </a>
                 
-                
-                <a href="HomeMember.html" class="navigation navigation-next " aria-label="Next page: 家庭成员管理">
+                <a href="HomeOption.html" class="navigation navigation-next navigation-unique" aria-label="Next page: 家庭操作">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -891,7 +885,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"家庭管理","level":"1.6.2","depth":2,"next":{"title":"家庭成员管理","level":"1.6.3","depth":2,"path":"resource/HomeMember.md","ref":"./resource/HomeMember.md","articles":[]},"previous":{"title":"家庭操作","level":"1.6.1","depth":2,"path":"resource/HomeOption.md","ref":"./resource/HomeOption.md","articles":[]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/HomeManager.md","mtime":"2018-10-30T03:51:02.967Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-08T06:56:34.115Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"家庭管理","level":"1.6.1","depth":2,"next":{"title":"家庭操作","level":"1.6.2","depth":2,"path":"resource/HomeOption.md","ref":"./resource/HomeOption.md","articles":[]},"previous":{"title":"家庭管理","level":"1.6","depth":1,"ref":"","articles":[{"title":"家庭管理","level":"1.6.1","depth":2,"path":"resource/HomeManager.md","ref":"./resource/HomeManager.md","articles":[]},{"title":"家庭操作","level":"1.6.2","depth":2,"path":"resource/HomeOption.md","ref":"./resource/HomeOption.md","articles":[]},{"title":"家庭成员管理","level":"1.6.3","depth":2,"path":"resource/HomeMember.md","ref":"./resource/HomeMember.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":[],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/HomeManager.md","mtime":"2018-11-20T10:46:20.678Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-20T10:47:52.739Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>

@@ -3,15 +3,6 @@
 The ITuyaHomeManager provides changes related to creating home, obtaining the home list and monitoring home, 
 
 and it can be obtained by invoking the TuyaHomeSdk.getHomeManagerInstance().
-
-## Obtain Home List
-```java
-/**
-* @param callback
-*/
-
-void queryHomeList(ITuyaGetHomeListCallback callback);
-```
 ## Create Home
 ```java
 /**
@@ -26,6 +17,16 @@ void queryHomeList(ITuyaGetHomeListCallback callback);
 
 void createHome(String name, double lon, double lat, String geoName, List<String> rooms, ITuyaHomeResultCallback callback);
 ```
+
+## Obtain Home List
+```java
+/**
+* @param callback
+*/
+
+void queryHomeList(ITuyaGetHomeListCallback callback);
+```
+
 ## Change of home information
 ```java
 /**

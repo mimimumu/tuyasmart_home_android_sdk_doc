@@ -15,8 +15,8 @@
   * [session失效监听](./resource/User_Session.md)
 * 家庭管理
 
-  * [家庭操作](./resource/HomeOption.md)
   * [家庭管理](./resource/HomeManager.md)
+  * [家庭操作](./resource/HomeOption.md)
   * [家庭成员管理](./resource/HomeMember.md)
 * [房间管理](./resource/Room.md)
 * 设备配网

@@ -2,15 +2,7 @@
 ITuyaHomeManager 提供了创建家庭、获取家庭列表以及监听家庭相关的变更
 
 可以通过TuyaHomeSdk.getHomeManagerInstance()获取
-#### 获取家庭列表
 
-```java
-
-/**
-     * @param callback
-     */
-    void queryHomeList(ITuyaGetHomeListCallback callback);
-```
 #### 创建家庭
 
 ```java
@@ -26,6 +18,17 @@ ITuyaHomeManager 提供了创建家庭、获取家庭列表以及监听家庭相
     void createHome(String name, double lon, double lat, String geoName, List<String> rooms, ITuyaHomeResultCallback callback);
 
 
+```
+
+
+#### 获取家庭列表
+
+```java
+
+/**
+     * @param callback
+     */
+    void queryHomeList(ITuyaGetHomeListCallback callback);
 ```
 
 #### 家庭信息的变更
@@ -84,7 +87,7 @@ public interface ITuyaHomeChangeListener {
 
     /**
      *
-     * 手机连接涂鸦云服务器成功，特别注意接收到此通知，在一些情况下，本地数据与服务端数据可能会不一致，可以调用Home下面getHomeDetail接口重新刷新数据。
+     * 手机连接涂鸦云服务器成功，特别注意接收到此通知，本地数据与服务端数据可能会不一致或者无法控制设备，可以调用Home下面getHomeDetail接口重新初始化数据。
      *
      */
     void onServerConnectSuccess();

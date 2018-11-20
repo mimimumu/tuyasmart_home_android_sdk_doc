@@ -13,8 +13,8 @@
   * [Lougout, Disable account](./resource/User_Logout.md)
   * [Data Model](./resource/User_Data_Model.md)
 * Home management
-  * [Operation Class of Home](./resource/Home_Option.md)
   * [Home Management Class](./resource/Home_Manager.md)
+  * [Operation Class of Home](./resource/Home_Option.md)
   * [Home Member Management Class](./resource/Home_Member.md)
 * [Room information management](.resource/Room.md)
 * [Network Configuration](./resource/Activator.md)
