@@ -131,7 +131,7 @@ android:process=":monitor">
 
 Arrange aliasing configuration in corresponding proguard-rules.pro files. 
 
-```shell 
+```bash 
 #fastJson
 -keep class com.alibaba.fastjson.**{*;}
 -dontwarn com.alibaba.fastjson.**

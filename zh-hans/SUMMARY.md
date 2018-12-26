@@ -18,7 +18,7 @@
   * [家庭管理](./resource/HomeManager.md)
   * [家庭操作](./resource/HomeOption.md)
   * [家庭成员管理](./resource/HomeMember.md)
-* [房间管理](./resource/Room.md)
+  * [家庭房间管理](./resource/Room.md)
 * 设备配网
 
   * [WIFI配网](./resource/Activator_wifi.md)
@@ -41,6 +41,6 @@
 * [消息中心](./resource/Message.md)
 * [意见反馈](./resource/Feedback.md)
 * [集成Push](./resource/Push.md)
-* [网关](./resource/Gateway.md)
+* [网关](./resource/Gateway.md)	
 * [常见问题](./resource/FAQ.md)
 * [更新日志](./resource/Update_Log.md)

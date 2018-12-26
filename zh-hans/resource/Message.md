@@ -141,4 +141,38 @@ TuyaMessage.getInstance().deleteMessages(
 });
 ```
 
-## 
+### 获取最新的消息
+
+##### 【描述】
+
+获取最新一条消息的时间戳
+
+##### 【方法原型】
+
+```java
+
+    /**
+     *  获取最新消息的时间戳
+     * @param callback
+     */
+    void getMessageMaxTime(ITuyaDataCallback<Integer> callback);
+
+```
+
+##### 【代码范例】
+
+```java
+
+        TuyaHomeSdk.getMessageInstance().getMessageMaxTime(new ITuyaDataCallback<Integer>() {
+            @Override
+            public void onSuccess(Integer integer) {
+                
+            }
+
+            @Override
+            public void onError(String s, String s1) {
+
+            }
+        });
+        
+```

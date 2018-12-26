@@ -59,7 +59,3 @@ TuyaHomeSdk.getDeviceShareInstance().renameReceivedShareNickname(memberId, name,
     }
 })
 ```
-
-------
-
-## 

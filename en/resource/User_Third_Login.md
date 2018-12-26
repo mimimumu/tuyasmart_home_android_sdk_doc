@@ -7,11 +7,11 @@
 ```java
 /**
 * @param countryCode Country code
-* @param key         key that authorizes login on twitter.
+* @param token       token that authorizes login on twitter.
 * @param secret      secret that authorizes login on twitter.
 */
 
-TuyaHomeSdk.getUserInstance().loginByTwitter(String countryCode, String key, String secret, ILoginCallback callback);
+TuyaHomeSdk.getUserInstance().loginByTwitter(String countryCode, String token, String secret, ILoginCallback callback);
 ```
 
 ## Login on QQ

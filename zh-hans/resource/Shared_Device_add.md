@@ -68,6 +68,12 @@ TuyaHomeSdk.getDeviceShareInstance().addShareWithHomeId(homeId, countryCode, use
         });
 ```
 
+#### (3)批量添加设备共享
+
+##### 【描述】
+
+批量添加设备共享
+
 ```java
 /**
  * 批量添加设备共享
@@ -95,7 +101,7 @@ TuyaHomeSdk.getDeviceShareInstance().addShareWithMemberId (memberId, devIds, new
 });
 ```
 
-#### (3)单个设备取消共享
+#### (4)单个设备取消共享
 
 ##### 【描述】
 
@@ -119,6 +125,42 @@ void disableDevShare(String devId, long memberId, IResultCallback callback);
 
 ```java
 TuyaHomeSdk.getDeviceShareInstance().disableDevShare (devId, memberId, new IResultCallback() {
+    @Override
+    public void onError(String code, String error) {
+        
+    }
+
+    @Override
+    public void onSuccess() {
+
+    }
+});
+```
+
+#### (5)单个设备开启分享
+
+##### 【描述】
+
+通过用户关系id开启单个设备分享
+
+##### 【方法调用】
+
+```java
+/**
+ * 用户下的设备分享开启
+ *
+ * @param devId
+ * @param memberId
+ * @param callback
+ */
+void enableDevShare(String devId, long memberId, IResultCallback callback);
+
+```
+
+##### 【代码范例】
+
+```java
+TuyaHomeSdk.getDeviceShareInstance().enableDevShare (devId, memberId, new IResultCallback() {
     @Override
     public void onError(String code, String error) {
         
@@ -262,6 +304,7 @@ TuyaHomeSdk.getDeviceShareInstance().queryShareDevFromInfo(devId, new ITuyaResul
 ##### 【方法调用】
 
 ```
+
 @param memberId 用户成员Id 从SharedUserInfoBean中获取
 void getUserShareInfo(long memberId, ITuyaResultCallback<ShareSentUserDetailBean> callback);
 
@@ -312,68 +355,3 @@ TuyaHomeSdk.getDeviceShareInstance().getReceivedShareInfo(memberId, new ITuyaRes
     }
 });
 ```
-
-#### (7) 邀请分享
-
-##### 【描述】
-
-可分享给未注册用户
-
-##### 【方法调用】
-
-```java
- @param devId       分享的设备id
- @param userAccount 账户
- @param countryCode 手机区号码,例如中国是“86”
- @param callback    返回分享id
-void inviteShare(String devId, String userAccount, String countryCode, ITuyaResultCallback<Integer> callback);
-
-```
-
-##### 【代码范例】
-
-```java
-TuyaHomeSdk.getDeviceShareInstance().inviteShare(String devId, String userAccount, String countryCode, new ITuyaResultCallback<Integer>() {
-    @Override
-    public void onError(String code, String error) {
-        
-    }
-
-    @Override
-    public void onSuccess(Integer shareId) {
-       // shareId 用于邀请分享确认的参数
-    }
-});
-```
-
-#### (8) 邀请分享确认
-
-##### 【描述】
-
-可分享给未注册用户
-
-##### 【方法调用】
-
-```java
-@param shareId  分享id 从邀请分享接口那里可获取该参数
-void confirmShareInviteShare(int shareId, final IResultCallback callback);
-
-```
-
-##### 【代码范例】
-
-```java
-TuyaHomeSdk.getDeviceShareInstance().confirmShareInviteShare(int shareId, new IResultCallback() {
-    @Override
-    public void onError(String code, String error) {
-        
-    }
-
-    @Override
-    public void onSuccess() {
-
-    }
-});
-```
-
-### 

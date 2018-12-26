@@ -31,47 +31,54 @@ The control commands shall be sent in the format given below. {"(dpId)":"(dpValu
 
 **[Example of Function Point]**
 
-A product interface on the development platform is as follows:![pastedGraphic_1.png](../../../../../../Library/Application Support/typora-user-images/B8B015F7-C08C-4E83-8DCE-A2FE553C169B/pastedGraphic_1.png)
+A product interface on the development platform is as follows:![功能点](./images/ios_dp_sample.jpeg) 
 
 According to the definition of function points of the product in the back end, the example codes is as follows.
 ```java
-// Example for boolean type function point with dpId set to 1. Function: turn on switch. 
+// Example for boolean type function point with dpId set to 101. Function: turn on switch. 
 
-dps = {"1": true};
-
-
-
-// Example of string type function point with dpId set to 4. Function: set RGB to ff5500.
-
-dps = {"4": "ff5500"};
+dps = {"101": true};
 
 
 
-// Example of enumeration type function point with dpId set to 5. Function: set gear to position 2.
+// Example of string type function point with dpId set to 102. Function: set RGB to ff5500.
 
-dps = {"5": "2"};
-
-
-
-// Example of value type function point with dpId set to 6. Function: set temperature to 20 centigrade degree.
-
-dps = {"6": 20};
+dps = {"102": "ff5500"};
 
 
 
-// Example of transparent (byte array) function point with dpId set to 15. Function: transparently transfer infrared data (i.e., 1122).
+// Example of enumeration type function point with dpId set to 103. Function: set gear to position 2.
 
-dps = {"15": "1122"};
+dps = {"103": "2"};
 
-// Send multiple functions in one time.
 
-dps = {"1": true, "4": "ff5500"};
+
+// Example of value type function point with dpId set to 104. Function: set temperature to 20 centigrade degree.
+
+dps = {"104": 20};
+
+
+
+// Example of transparent (byte array) function point with dpId set to 105. Function: transparently transfer infrared data (i.e., 1122).
+
+dps = {"105": "1122"};
+
+// Send multiple dp data in one time.
+
+dps = {"101": true, "102": "ff5500"};
 
 mDevice.publishDps(dps, new IControlCallback() {
 
 @Override
 
-public void onError(String code, String error) {}
+public void onError(String code, String error) {
+//Error code 11001
+//In the following cases:
+//1. Type error send to, for example, string type format, being sent to boolean type data
+//2. Read-only type DP data can not be sent. Reference to SchemaBean getMode "ro" is read-only type.
+//3, raw format send data format is not a hexadecimal string.
+
+}
 
 @Override
 
@@ -84,9 +91,10 @@ public void onSuccess() {
 **[Notes]**
 
 - Special attention shall be paid to the type of data in sending the control commands. 
-	 For example, the data type of function points shall be value, and {"2": 25} shall be sent as the control command, instead of {"2": "25"}.
+	 For example, the data type of function points shall be value, and {"104": 25} shall be sent as the control command, instead of {"104": "25"}.
 - For the transparent transmission, the byte array shall be the string format, and the string must have even bits. 
-	 The correct format shall be: {"1": "0110"}, instead of {"1": "110"}.
+	 The correct format shall be: {"105": "0110"}, instead of {"105": "110"}.
+- 
 
 ### **Initializing Data Listener**
 
@@ -140,7 +148,7 @@ Take the light product as an example.
 
 1. Defining the dp point of light switch
 ```java
-public static final String STHEME_LAMP_DPID_1 = "1"; //light switch 
+public static final String STHEME_LAMP_DPID_101 = "101"; //light switch 
 ```
 2. Data structure of light switch
 ```java
@@ -201,7 +209,7 @@ mDevice.registerDevListener(new IDevListener() {
     LampBean bean = new LampBean();
     bean.setOpen(true);
     HashMap<String, Object> hashMap = new HashMap<>();
-    hashMap.put(STHEME_LAMP_DPID_1, bean.isOpen());
+    hashMap.put(STHEME_LAMP_DPID_101, bean.isOpen());
     mDevice.publishDps(JSONObject.toJSONString(hashMap), new IControlCallback() {
         @Override
         public void onError(String code, String error) {
@@ -282,41 +290,7 @@ Invoke the following method to get the latest data, and then refresh the device 
 ```java
 TuyaHomeDataManager.getInstance().getDeviceBean(String devId);
 ```
-## **Obtaining Historical Data for Data Points**
 
-**[Description]**
-
-Obtain historical status data of dp points, such as information about power.
-
-**[Method Invocation]**
-
-```java
-* @param type           obtaining type values of historical data (hour, day and month)
-* @param number         obtaining the maximum number of historical data points (value (1-50))
-* @param dpId           obtaining dp point values of historical data
-* @param startTime      obtaining the coordinate and date of the historical data point
-
-getDataPointStat(DataPointTypeEnum type, long startTime, int number, String dpId, final IGetDataPointStatCallback callback)
-
-long startTime = System.currentTimeMillis(); // startTime
-
-int number = 12;// to obtain the number of resulting values of historical data (maximum: 50)
-
-String dpId = "1";
-
-mDevice.getDataPointStat(DataPointTypeEnum.DAY, startTime, number, dpId, new IGetDataPointStatCallback() {
-    @Override
-    public void onError(String errorCode, String errorMsg) {
-       Toast.makeText(mContext, "obtaining historical data failed" + errorMsg, Toast.LENGTH_SHORT).show();
-    }
-
-
-    @Override
-    public void onSuccess(DataPointStatBean bean) {
-        Toast.makeText(mContext, "obtaining historical data succeeded:", Toast.LENGTH_SHORT).show();
-    }
-});
-```
 ## Remove Device
 
 **[Description]**
@@ -345,3 +319,60 @@ mDevice.removeDevice(new IResultCallback() {
 
 });
 ```
+
+
+#### Obtain Wifi signal strength of device
+
+##### 【Description】
+
+Obtain Wifi signal strength of device
+
+##### 【Method Invocation】
+
+```java
+
+void requestWifiSignal(WifiSignalListener listener);
+```
+
+##### 【Example Codes】
+
+```java
+mDevice.requestWifiSignal(new WifiSignalListener() {
+     
+     @Override
+     public void onSignalValueFind(String signal) {
+      
+     }
+     
+     @Override
+     public void onError(String errorCode, String errorMsg) {
+
+     }
+ });;
+```
+
+#### DeviceBean
+
+
+|Field | Type | Description |
+| :--:| :--:| :--:|
+| iconUrl |String|device icon|
+IsOnline | Boolean | Whether the device is online (LAN or Cloud Online)|
+| name |String|device's name|
+| schema |String|Device Control Data Point Type Information |
+| productId |String|Product ID, the same product ID, Schema information consistent|
+| supportGroup |Boolean|whether the device support groups? If not, you can go to the open platform to turn on this feature|
+|Time | Long | Device Activation Time |
+|pv | String | Gateway Protocol Version |
+|bv | String | Gateway Universal Firmware Version |
+|schemaMap | Map | Schema Cached Data |
+|dps | Map | Device Data |
+|isShare | Boolean | a shared device |?
+|virtual | Boolean | is it a virtual device |?
+|lon, lat | String | Longitude and Latitude Information |
+|IsLocalOnline | Boolean | Device LAN Online Status |
+|nodeId | String | Device for gateway and subdevice type, which is an attribute of the subdevice and identifies its short address ID which one gateway have a unique nodeId for each subdevice|
+|timezoneId | String | Device time zone |
+| category | String | Device Type |
+|MeshId | String | Device for gateway and subdevice type, which is an attribute of subdevice and identifies its gateway ID |
+

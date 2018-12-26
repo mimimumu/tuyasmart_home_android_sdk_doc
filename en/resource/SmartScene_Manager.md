@@ -4,11 +4,11 @@
 
 Smart divides into scene or automation actions. Scene is a condition that users add actions and it is triggered manually; automation action is a condition set by the user, and the set action is automatically executed when the condition is triggered.
 
-In the Tuya smart Android SDK, smart includes the unified management interface of scene or automation actions, TuyaHomeSdk.TuyaHomeSdk.getSceneManagerInstance() and the independent operation interface TuyaHomeSdk.newSceneInstance(String sceneId). The independent operation interface needs to be initialized with the scene id. The scene id can be obtained in the result of [obtaining the scene list interface.](https://github.com/TuyaInc/tuyasmart_home_android_sdk/blob/master/TuyaSmartHomeSdkDemo/doc/tuyahome.md#%23%2310.1)
+In the Tuya smart Android SDK, smart includes the unified management interface of scene or automation actions, TuyaHomeSdk.TuyaHomeSdk.getSceneManagerInstance() and the independent operation interface TuyaHomeSdk.newSceneInstance(String sceneId). The independent operation interface needs to be initialized with the scene id. The scene id can be obtained in the result of [obtaining the scene list interface.](#ObtainSceneList)
 
 **In the following documents, manual scene and automated scene are simply referred to as scene.**
 
-## Obtain scene list
+## <span id="ObtainSceneList">Obtain scene list</span>
 
 **[Description]**
 
@@ -47,6 +47,13 @@ public List<SceneCondition> getConditions()
  */
 public List<SceneTask> getActions()
 
+/**
+ \* Obtain scene id
+ \* @return Scene id
+ */
+public String getId()
+
+
 ```
 
 **[Example Codes]**
@@ -82,7 +89,7 @@ public static SceneCondition createWeatherCondition(
       String type,
       Rule rule)
 ```
-Note: The PlaceFacadeBean class object is obtained from the [Obtain City List](https://github.com/TuyaInc/tuyasmart_home_android_sdk/blob/master/TuyaSmartHomeSdkDemo/doc/tuyahome.md#%23%23%2310.2.4), [Obtain City by Latitude and Longitude](https://github.com/TuyaInc/tuyasmart_home_android_sdk/blob/master/TuyaSmartHomeSdkDemo/doc/tuyahome.md#%23%23%2310.2.6) and [obtain City by City ID](https://github.com/TuyaInc/tuyasmart_home_android_sdk/blob/master/TuyaSmartHomeSdkDemo/doc/tuyahome.md#%23%23%2310.2.5) interface. Currently, the acquired urban interface only supports domestic cities.
+Note: The PlaceFacadeBean class object is obtained from the [Obtain City List](#citylist),[Obtain City By Altitude And Longitude](#ObtainCityAltitudeLongitude) and [Obtain City By City ID](#ObtainCityById) interface. Currently, the acquired urban interface only supports domestic cities.
 
 - Device type
 
@@ -101,7 +108,7 @@ public static SceneCondition createDevCondition(
       String dpId,
       Rule rule) 
 ```
-Note: SceneDevBean class object can be obtained from the interface of [Obtain the condition device list](https://github.com/TuyaInc/tuyasmart_home_android_sdk/blob/master/TuyaSmartHomeSdkDemo/doc/tuyahome.md#%23%23%2310.2.2).
+Note: SceneDevBean class object can be obtained from the interface of [Obtain the condition device list](#ObtainConditionDeviceList).
 
 - Timer
 
@@ -343,7 +350,7 @@ TuyaHomeSdk.getSceneManagerInstance().getConditionList(new ITuyaDataCallback<Lis
       }
 });
 ```
-### Obtain the condition device list
+### <span id="ObtainConditionDeviceList">Obtain the condition device list</span>
 
 **[Description]**
 
@@ -445,7 +452,7 @@ TuyaHomeSdk.getSceneManagerInstance().getDeviceConditionOperationList(
 });
 }
 ```
-### Obtain the city list
+### <span id="citylist">Obtain the city list</span>
 
 **[Description]**
 
@@ -511,7 +518,7 @@ TuyaHomeSdk.getSceneManagerInstance().getCityListByCountryCode(
       	}
 });
 ```
-### Obtain the city information according to the city id.
+### <span id="ObtainCityById">Obtain the city information according to the city id.</span>
 
 **[Description]**
 
@@ -551,7 +558,7 @@ TuyaHomeSdk.getSceneManagerInstance().getCityByCityIndex(
 
 });
 ```
-### Obtain the city information according to the altitude and longitude of city
+### <span id="ObtainCityAltitudeLongitude">Obtain the city information according to the altitude and longitude of city</sapn>
 
 **[Description]**
 
@@ -617,7 +624,7 @@ SceneTask task = SceneTask.createDpTask(
       taskMap     //Device action
 );
 ```
-### A list of devices supported by obtaining execution action
+### <span id="ObtainExecutionAction">A list of devices supported by obtaining execution action</span>
 
 **[Description]**
 
@@ -696,6 +703,19 @@ public String getIconUrl() {
        return iconUrl;
 
  }
+
+/**
+
+ \* device is online
+ 
+ \*
+ 
+ \* @return device is online
+ 
+ */
+ 
+public Boolean getIsOnline()
+
 ```
 **[Example Codes]**
 ```java
@@ -713,7 +733,7 @@ TuyaHomeSdk.getSceneManagerInstance().getTaskDevList(new ITuyaResultCallback<Lis
 
 **[Description]**
 
-It is used to obtain the tasks executed by the device when creating an action. The device id can be obtained from the [a list of devices supported by obtaining execution action](https://github.com/TuyaInc/tuyasmart_home_android_sdk/blob/master/TuyaSmartHomeSdkDemo/doc/tuyahome.md#%23%23%2310.3.1)
+It is used to obtain the tasks executed by the device when creating an action. The device id can be obtained from the [a list of devices supported by obtaining execution action](#ObtainExecutionAction)
 
 **[Method Prototype]**
 ```java
@@ -778,7 +798,7 @@ public String getType() {
 ```
 **[Example Codes]**
 ```java
-TuyaHomeSdk.getSceneManagerInstance().getTaskList(
+TuyaHomeSdk.getSceneManagerInstance().getDeviceTaskOperationList(
     devId,      //Device id
     new ITuyaResultCallback<List<TaskListBean>>() {
         @Override
@@ -845,7 +865,7 @@ TuyaHomeSdk.getSceneManagerInstance().createScene(
         }
 });
 ```
-### 10.5 Modify the scene
+### Modify the scene
 
 **[Description]**
 
@@ -888,6 +908,9 @@ TuyaHomeSdk.newSceneInstance(sceneId).modifyScene(
 **[Description]**
 
 It is used to execute manual scene.
+
+
+Note: This method only sends commands to the cloud execution scenario. If the specific device is executed successfully, you need to monitor the device's dp point change through TuyaHomeSdk.newDeviceInstance(devId).registerDevListener().
 
 **[Method Prototype]**
 ```java

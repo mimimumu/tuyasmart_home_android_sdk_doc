@@ -3,6 +3,24 @@ ITuyaHomeManager 提供了创建家庭、获取家庭列表以及监听家庭相
 
 可以通过TuyaHomeSdk.getHomeManagerInstance()获取
 
+####HomeBean字段信息
+```java
+    private String name;//家庭名称
+    private double lon;//经度
+    private double lat;//纬度
+    private String geoName;//家庭地理位置名称
+    private long homeId;//家庭Id
+    private boolean admin;//管理员身份
+    private List<RoomBean> rooms = new ArrayList<>();//所有房间列表
+    private List<DeviceBean> deviceList = new ArrayList<>();//所有设备列表
+    private List<GroupBean> groupList = new ArrayList<>();//所有群组
+    private List<BlueMeshBean> meshList = new ArrayList<>();//网关设备
+    private List<DeviceBean> sharedDeviceList = new ArrayList<>();//收到的共享设备
+    private List<GroupBean> sharedGroupList = new ArrayList<>();//收到的共享群组
+
+```
+
+
 #### 创建家庭
 
 ```java
@@ -97,10 +115,10 @@ public interface ITuyaHomeChangeListener {
 
 
 ### 对家庭的缓存数据操作
+**注意**: 获取此数据前，应该调用家庭的初始化接口 TuyaHomeSdk.newHomeInstance("homeId").getHomeDetail()或者TuyaHomeSdk.newHomeInstance("homeId").getHomeLocalCache 之后下面的接口才会有缓存数据。  
+接口入口:TuyaHomeSdk.getDataInstance()
 
 ```java
-
-获取此数据前，应该调用家庭的初始化接口 getHomeDetail、或者getHomeLocalCache 之后才会有
 
 public interface ITuyaHomeDataManager {
 

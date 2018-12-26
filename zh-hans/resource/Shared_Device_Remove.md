@@ -116,5 +116,3 @@ TuyaHomeSdk.getDeviceShareInstance().removeReceivedDevShare(devId,new IResultCal
     }
 })
 ```
-
-### 

@@ -3,11 +3,20 @@
 用于在用户和企业或开发者之间提供一种沟通通道。
 
 ITuyaFeedbackManager是反馈的管理类，提供了新增反馈、获取反馈列表等接口，调用方式：
-`ITuyaFeedbackManager = TuyaHomeSdk.getTuyaFeekback().getFeedbackManager()`
+
+```java
+
+ITuyaFeedbackManager = TuyaHomeSdk.getTuyaFeekback().getFeedbackManager()
+
+```
 
 ITuyaFeedbackMag是针对某一会话的反馈管理类，也提供了新增反馈、获取当前会话的消息列表，调用方式：
-`ITuyaFeedbackMag = TuyaHomeSdk.getTuyaFeekback().getFeedbackMsg(String hdId, int hdType)`
 
+```java
+
+ITuyaFeedbackMag = TuyaHomeSdk.getTuyaFeekback().getFeedbackMsg(String hdId, int hdType)
+
+```
 ### 获取反馈列表
 
 #### 【描述】
@@ -25,7 +34,7 @@ ITuyaFeedbackMag是针对某一会话的反馈管理类，也提供了新增反�
 void getFeedbackList(final ITuyaDataCallback<List<FeedbackBean>> callback);
 ```
 
-其中， `FeedbackTalkBean`类提供以下接口:
+其中， `FeedbackBean` 类提供以下接口:
 
 ```java
 /**
@@ -70,6 +79,39 @@ public int getHdType() {
  *  获取反馈类目标题(如果为设备故障反馈即设备名称)
  *
  * @return 类目标题
+ */
+public String getTitle() {
+    return title;
+}
+```
+
+`FeedbackTypeBean`类提供以下接口:
+
+```java
+/**
+ *  获取反馈类型id
+ *
+ * @return 反馈类型id
+ */
+public String getHdId() {
+    return hdId;
+}
+
+/**
+ * 获取反馈类型
+ * 2: 设备故障
+ * 7: 其他
+ *
+ * @return 反馈类型
+ */
+public int getHdType() {
+    return hdType;
+}
+
+/**
+ *  获取反馈类型标题(如果为设备故障反馈即设备名称)
+ *
+ * @return 类型标题
  */
 public String getTitle() {
     return title;
@@ -127,40 +169,10 @@ public ArrayList<FeedbackTypeBean> getList() {
 public String getType() {
     return type;
 }
+
 ```
 
-`FeedbackTypeBean`类提供以下接口:
 
-```java
-/**
- *  获取反馈类型id
- *
- * @return 反馈类型id
- */
-public String getHdId() {
-    return hdId;
-}
-
-/**
- * 获取反馈类型
- * 2: 设备故障
- * 7: 其他
- *
- * @return 反馈类型
- */
-public int getHdType() {
-    return hdType;
-}
-
-/**
- *  获取反馈类型标题(如果为设备故障反馈即设备名称)
- *
- * @return 类型标题
- */
-public String getTitle() {
-    return title;
-}
-```
 
 ##### 【代码范例】
 
@@ -220,7 +232,7 @@ TuyaHomeSdk.getTuyaFeekback().getFeedbackManager().addFeedback(
 
 ### 反馈消息管理
 
-由[获取反馈列表](###)接口返回的反馈列表中，每个反馈对象都对应者一组消息(对话)。请用该接口返回的`FeedbackBean`对象的参数来调用`TuyaHomeSdk.getTuyaFeekback().getFeedbackMsg(String hdId, int hdType)`方法来初始化消息管理类。
+由[获取反馈列表](###)接口返回的反馈列表中，每个反馈对象都对应者一组消息(对话)。请用该接口返回的`FeedbackBean`对象的参数来调用`TuyaHomeSdk.getTuyaFeekback().getFeedbackMsg(String hdId, int hdType)` 方法来初始化消息管理类。
 
 例:
 
@@ -231,24 +243,7 @@ ITuyaFeedbackMag mFeedbackMag = TuyaHomeSdk.getTuyaFeekback().getFeedbackMsg(
 );
 ```
 
-#### 获取反馈消息列表
-
-##### 【描述】
-
-用于获取当前反馈话题（会话场景）的消息列表。
-
-##### 【方法原型】
-
-```java
-/**
- * 获取反馈消息列表
- *
- *  @param callback 回调
- */
-void getMsgList(ITuyaDataCallback<List<FeedbackMsgBean>> callback);
-```
-
-其中, `FeedbackMsgBean`提供以下接口:
+ `FeedbackMsgBean`提供以下接口:
 
 ```java
 /**
@@ -275,6 +270,44 @@ public int getCtime() {
 public int getType() {
     return type;
 }
+
+/**
+ *  获取反馈类目id
+ *
+ * @return 反馈类目id
+ */
+public String getHdId() {
+    return hdId;
+}
+
+/**
+ * 获取反馈类型
+ * 2: 设备故障
+ * 7: 其他
+ *
+ * @return 反馈类型
+ */
+public int getHdType() {
+    return hdType;
+}
+
+```
+
+#### 获取反馈消息列表
+
+##### 【描述】
+
+用于获取当前反馈话题（会话场景）的消息列表。
+
+##### 【方法原型】
+
+```java
+/**
+ * 获取反馈消息列表
+ *
+ *  @param callback 回调
+ */
+void getMsgList(ITuyaDataCallback<List<FeedbackMsgBean>> callback);
 ```
 
 ##### 【代码范例】
@@ -307,12 +340,13 @@ mFeedbackMsg.getMsgList(new ITuyaDataCallback<List<FeedbackMsgBean>>() {
  * @param contact  联系方式
  * @param callback 回调
  */
-void addMsg(String msg, String  contact,ITuyaDataCallback<FeedbackMsgBean> callback);
+void addMsg(String msg, String contact, ITuyaDataCallback<FeedbackMsgBean> callback);
 ```
 
 ##### 【代码范例】
 
 ```java
+
 mFeedbackMsg.addMsg(
     "再次反馈问题","abc@qq.com", 
     new ITuyaDataCallback<FeedbackMsgBean>() {
@@ -324,6 +358,5 @@ mFeedbackMsg.addMsg(
         public void onError(String errorCode, String errorMessage) {
         }
 });
-```
 
-## 
+```

@@ -40,27 +40,33 @@ DeviceBean 类 dps 属性定义了设备的状态，称作数据点（DP点）�
 根据后台该产品的功能点定义，示例代码如下:
 
 ```java
-//设置dpId为1的布尔型功能点示例 作用:开关打开 
-dps = {"1": true};
+//设置dpId为101的布尔型功能点示例 作用:开关打开 
+dps = {"101": true};
 
-//设置dpId为4的字符串型功能点示例 作用:设置RGB颜色为ff5500
-dps = {"4": "ff5500"};
+//设置dpId为102的字符串型功能点示例 作用:设置RGB颜色为ff5500
+dps = {"102": "ff5500"};
 
-//设置dpId为5的枚举型功能点示例 作用:设置档位为2档
-dps = {"5": "2"};
+//设置dpId为103的枚举型功能点示例 作用:设置档位为2档
+dps = {"103": "2"};
 
-//设置dpId为6的数值型功能点示例 用:设置温度为20°
-dps = {"6": 20};
+//设置dpId为104的数值型功能点示例 用:设置温度为20°
+dps = {"104": 20};
 
-//设置dpId为15的透传型(byte数组)功能点示例 作用:透传红外数据为1122
-dps = {"15": "1122"};
+//设置dpId为105的透传型(byte数组)功能点示例 作用:透传红外数据为1122
+dps = {"105": "1122"};
 
 //多个功能合并发送
-dps = {"1": true, "4": "ff5500"};
+dps = {"101": true, "102": "ff5500"};
 
 mDevice.publishDps(dps, new IControlCallback() {
 @Override
-public void onError(String code, String error) {}
+public void onError(String code, String error) {
+//错误码11001 
+//有下面几种情况：
+//1、类型不对导致，例如，string类型格式，发成boolean类型数据
+//2、只读类型dp数据不能下发，参考SchemaBean getMode "ro"是只读类型，
+//3、raw格式发送数据格式不是16进制字符串。
+}
 @Override
 public void onSuccess() {
 }
@@ -70,9 +76,10 @@ public void onSuccess() {
 ##### 【注意事项】
 
 - 控制命令的发送需要特别注意数据类型。<br />
-	比如功能点的数据类型是数值型（value），那控制命令发送的应该是 `{"2": 25}`  而不是  `{"2": "25"}`<br />
-- 透传类型传输的byte数组是字符串格式并且必须是偶数位。<br />
-	比如正确的格式是: `{"1": "0110"}` 而不是 `{"1": "110"}`
+	比如功能点的数据类型是数值型（value），那控制命令发送的应该是 `{"104": 25}`  而不是  `{"104": "25"}`<br />
+- 透传类型传输的byte数组是16进制字符串格式并且必须是偶数位。<br />
+	比如正确的格式是: `{"105": "0110"}` 而不是 `{"105": "110"}`
+
 
 #### 初始化数据监听
 
@@ -127,7 +134,7 @@ mDevice.send(String command,IControlCallback callback);
 1、定义灯开关dp点
 
 ```java
-public static final String STHEME_LAMP_DPID_1 = "1"; //灯开关 
+public static final String STHEME_LAMP_DPID_101 = "101"; //灯开关 
 ```
 
 2、关于灯开关的数据结构：
@@ -189,7 +196,7 @@ mDevice.registerDevListener(new IDevListener() {
     LampBean bean = new LampBean();
     bean.setOpen(true);
     HashMap<String, Object> hashMap = new HashMap<>();
-    hashMap.put(STHEME_LAMP_DPID_1, bean.isOpen());
+    hashMap.put(STHEME_LAMP_DPID_101, bean.isOpen());
     mDevice.publishDps(JSONObject.toJSONString(hashMap), new IControlCallback() {
         @Override
         public void onError(String code, String error) {
@@ -315,3 +322,58 @@ mDevice.removeDevice(new IResultCallback() {
     }
 });
 ```
+
+#### 查询WiFi信号强度
+
+##### 【描述】
+
+查询当前设备WiFi的信号强度
+
+##### 【方法调用】
+
+```java
+
+void requestWifiSignal(WifiSignalListener listener);
+```
+
+##### 【代码范例】
+
+```java
+mDevice.requestWifiSignal(new WifiSignalListener() {
+     
+     @Override
+     public void onSignalValueFind(String signal) {
+      
+     }
+     
+     @Override
+     public void onError(String errorCode, String errorMsg) {
+
+     }
+ });;
+```
+
+#### DeviceBean 数据模型
+
+
+| 字段|类型|描述|
+| :--:| :--:| :--:|
+| iconUrl |String|图标地址|
+| isOnline |Boolean|设备是否在线（局域网\|或者云端在线）|
+| name |String|设备名称|
+| schema |String|设备控制数据点的类型信息|
+| productId |String|产品ID，同一个产品ID，Schema信息一致|
+| supportGroup |Boolean|设备是否支持群组，如果不支持请到开放平台开启此项功能|
+| time | Long |设备激活时间|
+| pv | String |网关协议版本|
+| bv | String |网关通用固件版本|
+| schemaMap | Map |Schema缓存数据|
+| dps | Map |设备数据|
+| isShare | boolean |是否是分享设备|
+| virtual|boolean |是否是虚拟设备|
+| lon、lat |String|经纬度信息|
+| isLocalOnline|boolean|设备局域网在线状态|
+| nodeId |String|用于网关和子设备类型的设备，属于子设备的一个属性，标识其短地址ID，一个网关下面的nodeId都唯一的|
+| timezoneId |String|设备时区|
+| category | String |设备类型|
+| meshId |String|用于网关和子设备类型的设备，属于子设备的一个属性，标识其网关ID|

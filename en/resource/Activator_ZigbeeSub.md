@@ -1,41 +1,58 @@
-## Network Configuration for ZigBee Sub-device
+### Network Configuration for ZigBee Sub-device
+
+#### Description
+
 The network configuration for ZigBee sub-device can be initiated only when the cloud for ZigBee gateway device is online, and the sub-device has been configured.
-[Method Invocation]
-```java
-TuyaHomeSdk.getActivatorInstance().newGwSubDevActivator(TuyaGwSubDevActivatorBuilder builder)
-// Start configuration
-mTuyaActivator.start();
-// Stop configuration
-mTuyaActivator.stop();
-// Exit the page to destroy some caches and listeners
-mTuyaActivator.onDestroy();
+
+```sequence
+Title: Zigbee sub-device configuration
+
+participant APP
+participant SDK
+participant Zigbee Gateway
+participant Service
+
+Note over Zigbee Gateway: Reset zigbee sub device
+APP->SDK: sends the subdevice activation instruction
+SDK->Zigbee Gateway: sends the activation instruction
+
+Note over Zigbee Gateway: zigbee gateway receives the activation data
+
+Zigbee Gateway->Service: activate the sub device
+Service-->Zigbee Gateway: network configuration succeeds
+
+Zigbee Gateway-->SDK: network configuration succeeds
+SDK-->APP: network configuration succeeds
+
 ```
-[Example Codes]
+
+#### Configuration Method Invocation
+
 ```java
 TuyaGwSubDevActivatorBuilder builder = new TuyaGwSubDevActivatorBuilder()
-					// Setting the gateway ID
-                .setDevId(mDevId)
-                // Setting the time-out period for network configuration
-                .setTimeOut(100)
-                .setListener(new ITuyaSmartActivatorListener() {
-                    @Override
-                    public void onError(String s, String s1) {
-                    }
+// Setting the gateway ID
+.setDevId(mDevId)
+// Setting the time-out period for network configuration
+.setTimeOut(100)
+.setListener(new ITuyaSmartActivatorListener() {
+@Override
+public void onError(String s, String s1) {
+}
 
-                    @Override
-                    public void onActiveSuccess(DeviceBean deviceBean) {
-                    }
+@Override
+public void onActiveSuccess(DeviceBean deviceBean) {
+}
 
-                    @Override
-                    public void onStep(String s, Object o) {
-                    }
-                });
+@Override
+public void onStep(String s, Object o) {
+}
+});
 
-        mTuyaGWActivator = TuyaHomeSdk.getActivatorInstance(). newGwSubDevActivator(builder);
-        // Start network configuration
-        mTuyaGWActivator.start();
-        // Stop network configuration
-        mTuyaGWActivator.stop();
-        // Destroy
-        mTuyaGWActivator.onDestory();
+ITuyaActivator mTuyaGWActivator = TuyaHomeSdk.getActivatorInstance(). newGwSubDevActivator(builder);
+// Start network configuration
+mTuyaGWActivator.start();
+// Stop network configuration
+mTuyaGWActivator.stop();
+// Destroy
+mTuyaGWActivator.onDestory();
 ```

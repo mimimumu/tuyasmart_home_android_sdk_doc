@@ -2,6 +2,16 @@
 
 The ITuyaRoom provides the room management class, and adding devices, removing devices or groups are handled in this class. The TuyaHomeSdk.newRoomInstance() can be used to build the room management class. 
 
+**RoomBean Field Information:**
+```java
+    private long roomId;//The id of the room
+    private String name;//The name of the room
+    private List<DeviceBean> deviceList; //The device in the room
+    private List<GroupBean> groupList;   //The group in the room
+    private int displayOrder;//Room order
+```
+
+**Interface:**
 ```java
 /**
 * Update room name

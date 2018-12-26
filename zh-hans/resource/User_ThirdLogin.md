@@ -7,11 +7,11 @@
 ```java
 /**
 * @param countryCode 国家区号
-* @param key         twitter授权登录获取的key
+* @param token       twitter授权登录获取的token
 * @param secret      twitter授权登录获取的secret
 */
 
-TuyaHomeSdk.getUserInstance().loginByTwitter(String countryCode, String key, String secret, ILoginCallback callback);
+TuyaHomeSdk.getUserInstance().loginByTwitter(String countryCode, String token, String secret, ILoginCallback callback);
 ```
 
 

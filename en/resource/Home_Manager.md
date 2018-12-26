@@ -1,9 +1,26 @@
 ## Home Management Class
 
-The ITuyaHomeManager provides changes related to creating home, obtaining the home list and monitoring home, 
+The ITuyaHomeManager provides changes related to creating home, obtaining the home list and monitoring home, and it can be obtained by invoking the TuyaHomeSdk.getHomeManagerInstance().
 
-and it can be obtained by invoking the TuyaHomeSdk.getHomeManagerInstance().
+## HomeBean Field Information
+```java
+    private String name;//The home name
+    private double lon;//The home lon
+    private double lat;//The home lat
+    private String geoName;//The home location name
+    private long homeId;//The home Id
+    private boolean admin;//Administrator status
+    private List<RoomBean> rooms = new ArrayList<>();//All the rooms
+    private List<DeviceBean> deviceList = new ArrayList<>();//All the devices
+    private List<GroupBean> groupList = new ArrayList<>();//All the groups
+    private List<BlueMeshBean> meshList = new ArrayList<>();//All of the mesh devices
+    private List<DeviceBean> sharedDeviceList = new ArrayList<>();//Shared devices received
+    private List<GroupBean> sharedGroupList = new ArrayList<>();//Shared groups received
+    
+```
+    
 ## Create Home
+
 ```java
 /**
 *
@@ -81,8 +98,9 @@ void onSharedDeviceList(List<DeviceBean> sharedDeviceList);
 ```
 
 ## Operate Cache Data of a Home
+**Attention**: Before obtaining the cache data, the initiation interface of home, TuyaHomeSdk.newHomeInstance("homeId").getHomeDetail() or TuyaHomeSdk.newHomeInstance("homeId").getHomeLocalCache shall be invoked first.
+Interface entry:TuyaHomeSdk.getDataInstance()
 
-Before obtaining the cache data, the initiation interface of home, getHomeDetail or getHomeLocalCache, shall be invoked first.
 
 ```java
 public interface ITuyaHomeDataManager {

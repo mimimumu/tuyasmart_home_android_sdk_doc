@@ -10,11 +10,11 @@
 
 和独立操作接口
 
-`TuyaHomeSdk.newSceneInstance(String sceneId)`，独立操作接口需要用场景id初始化，场景id可以在[获取场景列表接口](###10.1)的返回结果中获取。
+`TuyaHomeSdk.newSceneInstance(String sceneId)`，独立操作接口需要用场景id初始化，场景id可以在[获取场景列表接口](#GetSceneList)的返回结果中获取。
 
 <strong>以下文档中手动场景和自动化场景简称为场景。</strong>
 
-### 获取场景列表
+### <span id="GetSceneList">获取场景列表</span>
 
 ##### 【描述】
 
@@ -58,6 +58,25 @@ public List<SceneCondition> getConditions()
  * @return 场景任务
  */
 public List<SceneTask> getActions()
+
+/**
+ * 获取场景id
+ * @return 场景id
+ */
+public String getId()
+
+/**
+ * 获取满足条件的类型
+ * 满足任意条件：1，满足所有条件：2
+ * @return 满足条件类型
+ */
+public int getMatchType()
+
+/**
+ * 获取自动化是否启用
+ * @return 自动化是否启用
+ */
+public boolean isEnabled()
     
 ```
 
@@ -100,7 +119,7 @@ TuyaHomeSdk.getSceneManagerInstance().getSceneList(long homeId, new ITuyaResultC
 	      Rule rule)
 	```
 
-	  注: PlaceFacadeBean类对象请从[获取城市列表](####10.2.4),[根据经纬度获取城市](####10.2.6), [根据城市id获取城市](####10.2.5)接口获取。
+注: PlaceFacadeBean类对象请从[获取城市列表](#GetCityList),[根据经纬度获取城市](#GetCityInfoByLATLNG), [根据城市id获取城市](#GetCityByCityId)接口获取。
 	​      目前获取城市接口只支持国内。
 
 - 设备型
@@ -117,12 +136,12 @@ TuyaHomeSdk.getSceneManagerInstance().getSceneList(long homeId, new ITuyaResultC
 	   * @return
 	   */
 	  public static SceneCondition createDevCondition(
-	      SceneDevBean devBean,
+	      DeviceBean devBean,
 	      String dpId,
 	      Rule rule) 
 	```
 
-	  注: SceneDevBean类对象请从[获取条件设备列表](####10.2.2)接口获取。
+注: DeviceBean从 [获取条件设备列表](#GetConditionDeviceList)接口获取。
 
 - 定时
 
@@ -204,7 +223,7 @@ rule-条件规则有四种规则:
 
 - 布尔型
 
-	布尔型常见于设备型条件, 最终表达式为"dp1 == true"的格式, 您需要调用获取条件设备列表接口获取支持配置智能场景的设备， 然后根据设备id查询该设备可支持的操作，详见获取设备支持的操作。在用户界面上完成配置后， 调用`BoolRule.newInstance`方法构建规则，并用规则构成条件。
+	布尔型常见于设备型条件, 最终表达式为"dp1 == true"的格式, 您需要调用[获取条件设备列表](#GetConditionDeviceList)接口获取支持配置智能场景的设备， 然后根据设备id查询该设备可支持的操作，详见获取设备支持的操作。在用户界面上完成配置后， 调用`BoolRule.newInstance`方法构建规则，并用规则构成条件。
 
 	例:
 
@@ -367,7 +386,7 @@ TuyaHomeSdk.getSceneManagerInstance().getConditionList(new ITuyaDataCallback<Lis
 });
 ```
 
-#### 获取条件设备列表
+#### <span id="GetConditionDeviceList">获取条件设备列表</span>
 
 ##### 【描述】
 
@@ -476,7 +495,7 @@ TuyaHomeSdk.getSceneManagerInstance().getDeviceConditionOperationList(
 }
 ```
 
-#### 获取城市列表
+#### <span id="GetCityList">获取城市列表</span>
 
 ##### 【描述】
 
@@ -551,7 +570,7 @@ TuyaHomeSdk.getSceneManagerInstance().getCityListByCountryCode(
 });
 ```
 
-#### 根据城市id获取城市信息
+#### <span id="GetCityByCityId">根据城市id获取城市信息</span>
 
 ##### 【描述】
 
@@ -585,7 +604,7 @@ TuyaHomeSdk.getSceneManagerInstance().getCityByCityIndex(
 });
 ```
 
-#### 根据经纬度获取城市信息
+#### <span id="GetCityInfoByLATLNG">根据经纬度获取城市信息</span>
 
 ##### 【描述】
 
@@ -660,7 +679,7 @@ SceneTask task = SceneTask.createDpTask(
 );
 ```
 
-#### 获取执行动作支持的设备列表
+#### <span id="GetActionDevList">获取执行动作支持的设备列表</span>
 
 ##### 【描述】
 
@@ -715,6 +734,14 @@ public String getDevId() {
 public String getIconUrl() {
      return iconUrl;
  }
+
+/**
+ * 设备是否在线
+ *
+ * @return 设备是否在线
+ */
+public Boolean getIsOnline()
+
 ```
 
 ##### 【代码范例】
@@ -735,7 +762,7 @@ TuyaHomeSdk.getSceneManagerInstance().getTaskDevList(new ITuyaResultCallback<Lis
 
 ##### 【描述】
 
-用于在创建动作时， 获取设备可执行的任务。设备id可以从[获取执行动作支持的设备列表](####10.3.1)获取
+用于在创建动作时， 获取设备可执行的任务。设备id可以从[获取执行动作支持的设备列表](#GetActionDevList)获取
 
 ##### 【方法原型】
 
@@ -796,7 +823,7 @@ public String getType() {
 ##### 【代码范例】
 
 ```java
-TuyaHomeSdk.getSceneManagerInstance().getTaskList(
+TuyaHomeSdk.getSceneManagerInstance().getDeviceTaskOperationList(
     devId, //设备id
     new ITuyaResultCallback<List<TaskListBean>>() {
         @Override
@@ -869,7 +896,7 @@ TuyaHomeSdk.getSceneManagerInstance().createScene(
 });
 ```
 
-### 10.5 修改场景
+### 修改场景
 
 ##### 【描述】
 
@@ -917,6 +944,8 @@ TuyaHomeSdk.newSceneInstance(sceneId).modifyScene(
 ##### 【描述】
 
 用于执行手动场景。
+	
+注：这个方法只管发送指令到云端执行场景，具体设备执行成功与否，需要通过TuyaHomeSdk.newDeviceInstance(devId).registerDevListener()监听设备的dp点变化。
 
 ##### 【方法原型】
 

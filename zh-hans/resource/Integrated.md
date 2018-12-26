@@ -129,7 +129,7 @@ android:process=":monitor">
 
 在proguard-rules.pro文件配置相应混淆配置
 
-```shell
+```bash
 #fastJson
 -keep class com.alibaba.fastjson.**{*;}
 -dontwarn com.alibaba.fastjson.**

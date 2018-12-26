@@ -130,3 +130,39 @@ TuyaMessage.getInstance().deleteMessages(
          }
 });
 ```
+
+### Get the latest message
+
+**[Description]**
+
+Gets the timestamp of the latest message
+
+**[Method Prototype]**
+
+```java
+
+    /**
+     *  Gets the timestamp of the latest message
+     * @param callback
+     */
+    void getMessageMaxTime(ITuyaDataCallback<Integer> callback);
+
+```
+
+**[Example Codes]**
+
+```java
+
+        TuyaHomeSdk.getMessageInstance().getMessageMaxTime(new ITuyaDataCallback<Integer>() {
+            @Override
+            public void onSuccess(Integer integer) {
+                
+            }
+
+            @Override
+            public void onError(String s, String s1) {
+
+            }
+        });
+        
+```

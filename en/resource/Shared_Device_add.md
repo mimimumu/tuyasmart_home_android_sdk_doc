@@ -9,6 +9,7 @@ Sharing multiple devices with a specified user will overwrite all his devices pr
 **[Method Invocation]**
 
 ```java
+
 @param homeId	home id
 @param countryCode	area code of mobile phone number (for example, the area code in China is “86”)
 @param userAccount	account number
@@ -19,20 +20,20 @@ Sharing multiple devices with a specified user will overwrite all his devices pr
 void addShare(long homeId, String countryCode, String userAccount, ShareIdBean bean, boolean autoSharing, ITuyaResultCallback<SharedUserInfoBean> callback);
 ```
 
-
 **[Example Codes]**
+
 ```java
+
 TuyaHomeSdk.getDeviceShareInstance.addShare(homeId, countryCode, userAccount, bean, true, new ITuyaResultCallback<SharedUserInfoBean>() {
             @Override
             public void onSuccess(SharedUserInfoBean bean) {
-                
             }
             @Override
             public void onError(String errorMsg, String errorCode) {
-                
             }
         });
 ```
+
 ## (2) Add multiple devices for sharing (supplementing)
 
 **[Description]**
@@ -48,7 +49,9 @@ Sharing multiple devices with a specified user will result in that the device to
 
 TuyaHomeSdk.getDeviceShareInstance().addShareWithHomeId(long homeId,String countryCode, String userAccount, List<String> devIds, ITuyaResultCallback<SharedUserInfoBean> callback);
 ```
+
 **[Example Codes]**
+
 ```java
 TuyaHomeSdk.getDeviceShareInstance().addShareWithHomeId(homeId, countryCode, userAccount, devIds, new ITuyaResultCallback<SharedUserInfoBean>() {
     @Override
@@ -60,25 +63,39 @@ TuyaHomeSdk.getDeviceShareInstance().addShareWithHomeId(homeId, countryCode, use
  });
 
 /**
-
- \* Adding devices in batches for sharing
-
- \* @param memberId	sharing target user id
-
- \* @param devIds	list of device ids
-
- \* @param callback
-
+ * Adding devices in batches for sharing
+ * @param memberId	sharing target user id
+ * @param devIds	list of device ids
+ * @param callback
  */
-
 void addShareWithMemberId(long memberId,List<String> devIds,IResultCallback callback);
 ```
+
+## (3) Batch add device sharing(supplementing)
+
+**[Description]**
+
+Batch add device sharing by MemberId
+
+```java
+
+    /**
+     * Batch add device sharing by MemberId(supplementing)
+     *
+     * @param memberId Share the target user id
+     * @param devIds
+     * @param callback
+     */
+    void addShareWithMemberId(long memberId, List<String> devIds, IResultCallback callback);
+
+```
+
 **[Example Codes]**
+
 ```java
 TuyaHomeSdk.getDeviceShareInstance().addShareWithMemberId (memberId, devIds, new IResultCallback() {
     @Override
     public void onError(String code, String error) {
-        
     }
 
     @Override
@@ -86,42 +103,81 @@ TuyaHomeSdk.getDeviceShareInstance().addShareWithMemberId (memberId, devIds, new
     }
 });
 ```
-## (3) Unsharing a single device
+
+## (4) Unsharing a single device
 
 **[Description]**
 
 Unshare a single device via the user relationship id.
 
 **[Method Invocation]**
+
 ```java
 /**
-
- \* The device sharing function of a user is closed.
-
+ * Close device sharing under user
  *
-
- \* @param devId
-
- \* @param memberId
-
- \* @param callback
-
+ * @param devId
+ * @param memberId
+ * @param callback
  */
-
 void disableDevShare(String devId, long memberId, IResultCallback callback);
+
 ```
-**[Example Codes]**
+
+### 【Example Codes】
+
 ```java
 TuyaHomeSdk.getDeviceShareInstance().disableDevShare (devId, memberId, new IResultCallback() {
     @Override
     public void onError(String code, String error) {
         
     }
+
     @Override
     public void onSuccess() {
+
     }
-})
+});
 ```
+
+## (5)Sharing a single device
+
+### 【描述】
+
+Share a single device via the user relationship id.
+
+**[Method Invocation]**
+
+```java
+/**
+ * Open device sharing under user
+ *
+ * @param devId
+ * @param memberId
+ * @param callback
+ */
+void enableDevShare(String devId, long memberId, IResultCallback callback);
+
+```
+
+### 【Example Codes】
+
+```java
+TuyaHomeSdk.getDeviceShareInstance().enableDevShare (devId, memberId, new IResultCallback() {
+    @Override
+    public void onError(String code, String error) {
+        
+    }
+
+    @Override
+    public void onSuccess() {
+
+    }
+});
+```
+
+
+
 # Query Sharing
 
 ## (1) Querying the list of actively shared relationships
@@ -276,63 +332,6 @@ TuyaHomeSdk.getDeviceShareInstance().getReceivedShareInfo(memberId, new ITuyaRes
     }
     @Override
     public void onSuccess(ShareReceivedUserDetailBean result) {
-    }
-
-});
-```
-## (7) Inviting sharing
-
-**[Description]**
-
-It can be shared with unregistered users.
-
-**[Method Invocation]**
-```java
- @param devId       id of shared device
- @param userAccount 	account
- @Param countryCode	area code of mobile phone number (for example, the area code in China is “86”)
- @param callback    returning shared id
-
-void inviteShare(String devId, String userAccount, String countryCode, ITuyaResultCallback<Integer> callback);
-```
-**[Example Codes]**
-```java
-TuyaHomeSdk.getDeviceShareInstance().inviteShare(String devId, String userAccount, String countryCode, new ITuyaResultCallback<Integer>() {
-    @Override
-    public void onError(String code, String error) {
-        
-    }
-    @Override
-    public void onSuccess(Integer shareId) {
-
-       // shareId is used to invite sharing the parameters confirmed.
-    }
-
-});
-```
-## (8) Inviting sharing confirmation
-
-**[Description]**
-
-It can be shared with unregistered users.
-
-**[Method Invocation]**
-```java
-@param shareId	sharing id (obtaining the parameter from the interface for inviting sharing)
-
-void confirmShareInviteShare(int shareId, final IResultCallback callback);
-```
-**[Example Codes]**
-```java
-TuyaHomeSdk.getDeviceShareInstance().confirmShareInviteShare(int shareId, new IResultCallback() {
-    @Override
-    public void onError(String code, String error) {
-        
-    }
-
-    @Override
-    public void onSuccess() {
-
     }
 
 });
