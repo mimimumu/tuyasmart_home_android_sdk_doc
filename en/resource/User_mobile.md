@@ -6,7 +6,7 @@ Tuya Smart provides the mobile phone verification code login system.
 
 **[Description]**
 
-In the Chinese mainland, the mobile phone verification code login is supported.
+The mobile phone verification code login function needs to first call the verification code sending interface and send the verification code. Then call the phone verification code verification interface. Fill in the received verification code into the corresponding parameters.
 
 **[Code Invocation]**
 
@@ -64,7 +64,7 @@ Tuya Smart provides the mobile phone password login system.
 
 **[Description]**
 
-Register password on the mobile phone. The mobile phone account registration is supported in both China and other countries.
+Register password on the mobile phone.
 
 **[Method Invocation]**
 
@@ -82,8 +82,9 @@ TuyaHomeSdk.getUserInstance().getValidateCode(String countryCode, String phoneNu
 
 /** Use your mobile phone to register account and password.
 * @param countryCode Country code
-* @param phone       Mobile phone password
+* @param phone       Mobile phone 
 * @param passwd      Password
+* @param code        Verification code
 * @param callback    Login callback interface. 
 */
 

@@ -55,7 +55,7 @@ TuyaHomeSdk.getUserInstance().loginWithPhone("86", "13355555555", "123456", new 
 
 涂鸦智能提供手机密码登陆体系。
 ### 1. 手机密码注册
-手机密码注册。支持国内外手机注册。
+手机密码注册。
 
 **接口描述：**
 
@@ -67,12 +67,13 @@ TuyaHomeSdk.getUserInstance().loginWithPhone("86", "13355555555", "123456", new 
 */
 TuyaHomeSdk.getUserInstance().getValidateCode(String countryCode, String phoneNumber, final IValidateCallback callback);
 
-/** 
-* 注册手机密码账户
+/**
+* 手机密码注册
 * @param countryCode 国家区号
-* @param phone       手机密码
-* @param passwd      登陆密码
-* @param callback    登陆回调接口
+* @param phone       电话
+* @param passwd      密码
+* @param code        验证码
+* @param callback
 */
 TuyaHomeSdk.getUserInstance().registerAccountWithPhone(final String countryCode, final String phone, final String passwd, final String code, final IRegisterCallback callback);
 ```

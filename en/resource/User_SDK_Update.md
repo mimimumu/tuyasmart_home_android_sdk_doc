@@ -1,4 +1,4 @@
-# Migration of a Series of SDK Accounts
+# Migration of One Series of SDK Accounts
 
 Upgrade after the login
 

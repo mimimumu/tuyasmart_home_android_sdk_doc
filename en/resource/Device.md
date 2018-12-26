@@ -9,7 +9,7 @@ Tuya Smart provides a lot of interfaces for developers to realize the acquisitio
 **[Notes]**
 
 - For the device control, the data must be initialized first; namely, TuyaHomeSdk.newHomeInstance(homeId).getHomeDetail(ITuyaHomeResultCallback callback) must be invoked first.
-- Introduction to schema dp data [see related concepts of function points for details] [3]
+- Introduction to schema dp data [see related concepts of function points for details][3]
 
 ![pastedGraphic.png](images/pastedGraphic-1064908.png)
 
@@ -23,7 +23,7 @@ ITuyaDevice mDevice = TuyaHomeSdk.newDeviceInstance(deviceBean.getDevId());
 ```
 ## **Function Points of Device**
 
-The dps attribute of the DeviceBean class defines the state of the device, and is called the data point (DP) or the function point. Each key in the dps dictionary refers to a dpId of a function point, and the dpValue is the value of the function point. Refer to the functions of product on the [Tuya developer platform ](https://developer.tuya.com/)for definition of function points of products. For details of function points, please refer to the [QuickStart-Related Concepts of Function Points](https://docs.tuya.com/cn/creatproduct/#_7)
+The dps attribute of the DeviceBean class defines the state of the device, and is called the data point (DP) or the function point. Each key in the dps dictionary refers to a dpId of a function point, and the dpValue is the value of the function point. Refer to the functions of product on the [Tuya developer platform ](https://developer.tuya.com/)for definition of function points of products. For details of function points, please refer to the [Functional Point Related Concepts](https://docs.tuya.com/en/product/function.html)
 
 **[Command Format]**
 

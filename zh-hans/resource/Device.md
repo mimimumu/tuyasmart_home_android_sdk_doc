@@ -25,7 +25,7 @@ ITuyaDevice mDevice = TuyaHomeSdk.newDeviceInstance(deviceBean.getDevId());
 #### 设备功能点
 
 DeviceBean 类 dps 属性定义了设备的状态，称作数据点（DP点）或功能点。`dps`字典里的每个`key`对应一个功能点的`dpId`，`dpValue`为该功能点的值。各自产品功能点定义参见[涂鸦开发者平台](https://developer.tuya.com/)的产品功能。
-功能点具体参见[快速入门-功能点相关概念](https://docs.tuya.com/cn/creatproduct/#_7)
+功能点具体参见[功能点相关概念](https://docs.tuya.com/cn/product/function.html)
 
 ##### 【指令格式】
 
@@ -359,7 +359,7 @@ mDevice.requestWifiSignal(new WifiSignalListener() {
 | 字段|类型|描述|
 | :--:| :--:| :--:|
 | iconUrl |String|图标地址|
-| isOnline |Boolean|设备是否在线（局域网\|或者云端在线）|
+| isOnline |Boolean|设备是否在线（局域网或者云端在线）|
 | name |String|设备名称|
 | schema |String|设备控制数据点的类型信息|
 | productId |String|产品ID，同一个产品ID，Schema信息一致|

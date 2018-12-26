@@ -66,7 +66,7 @@ void setTempUnit(TempUnitEnum unit, IResultCallback callback);
 
 **接口描述**
 
-一周后账号才会永久停用并删除以下你账户中的所有信息，在此之前重新登录，则你的停用请求将被取消
+调用注销账户接口后，账号在一周后才会永久停用并删除你账户下的所有信息。在此之前重新登录，则你的停用请求将被取消。
 
 ```java
 

@@ -696,53 +696,93 @@
                                 
                                 <h2 id="&#x7F51;&#x5173;"><a name="&#x7F51;&#x5173;" class="plugin-anchor" href="#&#x7F51;&#x5173;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x7F51;&#x5173;</h2>
 <p>&#x7F51;&#x5173;&#x7C7B;&#x5C01;&#x88C5;&#x4E86;ZigBee&#x7F51;&#x5173;&#x7684;&#x76F8;&#x5173;&#x64CD;&#x4F5C;&#xFF0C;&#x5305;&#x62EC;&#x63A7;&#x5236;&#xFF0C;&#x67E5;&#x8BE2;&#x5B50;&#x8BBE;&#x5907;&#xFF0C;&#x76D1;&#x542C;&#x5B50;&#x8BBE;&#x5907;&#x72B6;&#x6001;&#x7B49;&#x3002;
-&#x53EF;&#x4EE5;&#x901A;&#x8FC7;TuyaHomeSdk.newGatewayInstance()&#x53BB;&#x521D;&#x59CB;&#x5316;&#x7F51;&#x5173;&#x3002;</p>
-<pre class="language-"><code>public interface ITuyaGateway {
-    /**
-     * &#x53D1;&#x9001;&#x547D;&#x4EE4;
+&#x53EF;&#x4EE5;&#x901A;&#x8FC7;TuyaHomeSdk.newGatewayInstance()&#x53BB;&#x521D;&#x59CB;&#x5316;&#x7F51;&#x5173;&#x3002;
+&#x5B50;&#x8BBE;&#x5907;&#x63A7;&#x5236;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;TuyaDevice&#x6765;&#x5B9E;&#x73B0;&#x3002;</p>
+<h3 id="&#x63A5;&#x53E3;&#x63CF;&#x8FF0;"><a name="&#x63A5;&#x53E3;&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63A5;&#x53E3;&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63A5;&#x53E3;&#x63CF;&#x8FF0;</h3>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ITuyaGateway</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * &#x7ED9;&#x5B50;&#x8BBE;&#x5907;&#x53D1;&#x9001;&#x63A7;&#x5236;&#x547D;&#x4EE4; 
+     * @param nodeId &#x5BF9;&#x5E94; DeviceBean &#x7684;nodeId 
+     * @param dps 
+     * @param callback
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">publishDps</span><span class="token punctuation">(</span>String nodeId<span class="token punctuation">,</span> String dps<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * &#x7ED9;&#x7F51;&#x5173;&#x4E0B;&#x7684;&#x5B50;&#x8BBE;&#x5907;&#x53D1;&#x9001;&#x5E7F;&#x64AD;&#xFF0C;&#x8FDB;&#x884C;&#x8BBE;&#x5907;&#x63A7;&#x5236;
      *
      * @param dps
      * @param callback
-     */
-    void publishDps(String localId, String dps, IResultCallback callback);
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">broadcastDps</span><span class="token punctuation">(</span>String dps<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    /**
-     * &#x5E7F;&#x64AD;&#x63A7;&#x5236;&#x8BBE;&#x5907;
-     *
-     * @param dps
-     * @param callback
-     */
-    void broadcastDps(String dps, IResultCallback callback);
-
-    /**
-     * &#x7EC4;&#x64AD;&#x63A7;&#x5236;&#x8BBE;&#x5907;
+    <span class="token comment">/**
+     * &#x7ED9;&#x7F51;&#x5173;&#x4E0B;&#x7684;&#x5B50;&#x8BBE;&#x5907;&#x53D1;&#x9001;&#x7EC4;&#x64AD;&#xFF0C;&#x8FDB;&#x884C;&#x8BBE;&#x5907;&#x63A7;&#x5236;
      *
      * @param localId
      * @param dps
      * @param callback
-     */
-    void multicastDps(String localId, String dps, IResultCallback callback);
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">multicastDps</span><span class="token punctuation">(</span>String localId<span class="token punctuation">,</span> String dps<span class="token punctuation">,</span> IResultCallback callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    /**
-     * &#x83B7;&#x53D6;&#x7F51;&#x5173;&#x5B50;&#x8BBE;&#x5907;
+    <span class="token comment">/**
+     * &#x901A;&#x8FC7;&#x4E91;&#x7AEF;&#x83B7;&#x53D6;&#x7F51;&#x5173;&#x5B50;&#x8BBE;&#x5907;&#x5217;&#x8868;
      *
      * @param callback
-     */
-    void getSubDevList(ITuyaDataCallback&lt;List<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DeviceBean</span><span class="token punctuation">&gt;</span></span>&gt; callback);
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">getSubDevList</span><span class="token punctuation">(</span>ITuyaDataCallback<span class="token operator">&lt;</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>DeviceBean<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span> callback<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    /**
-     * &#x6CE8;&#x518C;&#x5B50;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x53D8;&#x66F4;
+    <span class="token comment">/**
+     * &#x76D1;&#x542C;&#x5B50;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x53D8;&#x66F4;
      *
      * @param listener
-     */
-    void registerSubDevListener(ISubDevListener listener);
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">registerSubDevListener</span><span class="token punctuation">(</span>ISubDevListener listener<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    /**
+    <span class="token comment">/**
      * &#x6CE8;&#x9500;&#x5B50;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x53D8;&#x66F4;
-     */
-    void unRegisterSubDevListener();
-}
-</code></pre><hr>
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">unRegisterSubDevListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="&#x5B50;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x53D8;&#x66F4;&#x76D1;&#x542C;"><a name="&#x5B50;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x53D8;&#x66F4;&#x76D1;&#x542C;" class="plugin-anchor" href="#&#x5B50;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x53D8;&#x66F4;&#x76D1;&#x542C;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x5B50;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x53D8;&#x66F4;&#x76D1;&#x542C;</h3>
+<h4 id="&#x63A5;&#x53E3;&#x63CF;&#x8FF0;"><a name="&#x63A5;&#x53E3;&#x63CF;&#x8FF0;" class="plugin-anchor" href="#&#x63A5;&#x53E3;&#x63CF;&#x8FF0;"><i class="fa fa-link" aria-hidden="true"></i></a>&#x63A5;&#x53E3;&#x63CF;&#x8FF0;</h4>
+<pre class="language-"><code class="lang-java">
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">ISubDevListener</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">/**
+     * &#x8BBE;&#x5907;dp&#x70B9;&#x72B6;&#x6001;&#x53D8;&#x66F4;
+     *
+     * @param nodeId
+     * @param dpStr
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">onSubDevDpUpdate</span><span class="token punctuation">(</span>String nodeId<span class="token punctuation">,</span> String dpStr<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * &#x8BBE;&#x5907;&#x79FB;&#x9664;
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">onSubDevRemoved</span><span class="token punctuation">(</span>String devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * &#x65B0;&#x589E;&#x8BBE;&#x5907;
+     *
+     * @param devId
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">onSubDevAdded</span><span class="token punctuation">(</span>String devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Device information updates such as name
+     */</span>
+    <span class="token keyword">void</span> <span class="token function">onSubDevInfoUpdate</span><span class="token punctuation">(</span>String devId<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">/**
+     * Subdevices  online and offline status
+     */</span>
+
+    <span class="token keyword">void</span> <span class="token function">onSubDevStatusChanged</span><span class="token punctuation">(</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> onlineNodeIds<span class="token punctuation">,</span> List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> offlineNodeIds<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<hr>
 
                                 
                                 </section>
@@ -786,7 +826,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"网关","level":"1.16","depth":1,"next":{"title":"常见问题","level":"1.17","depth":1,"path":"resource/FAQ.md","ref":"./resource/FAQ.md","articles":[]},"previous":{"title":"集成Push","level":"1.15","depth":1,"path":"resource/Push.md","ref":"./resource/Push.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/Gateway.md","mtime":"2018-11-20T10:43:01.820Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T02:29:45.765Z"},"basePath":"..","book":{"language":"zh-hans"}});
+            gitbook.page.hasChanged({"page":{"title":"网关","level":"1.16","depth":1,"next":{"title":"常见问题","level":"1.17","depth":1,"path":"resource/FAQ.md","ref":"./resource/FAQ.md","articles":[]},"previous":{"title":"集成Push","level":"1.15","depth":1,"path":"resource/Push.md","ref":"./resource/Push.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"zh-hans","gitbook":"*"},"file":{"path":"resource/Gateway.md","mtime":"2018-12-26T03:23:02.657Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T05:52:34.853Z"},"basePath":"..","book":{"language":"zh-hans"}});
         });
     </script>
 </div>

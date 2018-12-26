@@ -749,7 +749,7 @@ Among<span class="token punctuation">,</span> the <span class="token keyword">in
   */</span>
   <span class="token keyword">public</span> <span class="token keyword">static</span> SceneCondition <span class="token function">createTimerCondition</span><span class="token punctuation">(</span>String display<span class="token punctuation">,</span>String name<span class="token punctuation">,</span>String type<span class="token punctuation">,</span>Rule rule<span class="token punctuation">)</span>
 </code></pre>
-<p>There are four rules for rule-condition rules:</p>
+<h4 id="there-are-four-rules-for-rule-condition-rules"><a name="there-are-four-rules-for-rule-condition-rules" class="plugin-anchor" href="#there-are-four-rules-for-rule-condition-rules"><i class="fa fa-link" aria-hidden="true"></i></a><span id="rules">There are four rules for rule-condition rules:</span></h4>
 <ul>
 <li>Numerical type</li>
 </ul>
@@ -848,7 +848,7 @@ TimerProperty timerProperty <span class="token operator">=</span> <span class="t
 <span class="token keyword">public</span> <span class="token keyword">static</span> TimerRule <span class="token function">newInstance</span><span class="token punctuation">(</span>String timeZoneId<span class="token punctuation">,</span>String loops<span class="token punctuation">,</span>String time<span class="token punctuation">,</span>String date<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
  <span class="token comment">//Create timer rule</span>
- TimerRule timerRule <span class="token operator">=</span> TimerRule<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token string">&quot;Asia/Shanghai&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;0111110&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;16:00&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;20180310&quot;</span>
+ TimerRule timerRule <span class="token operator">=</span> TimerRule<span class="token punctuation">.</span><span class="token function">newInstance</span><span class="token punctuation">(</span><span class="token string">&quot;Asia/Shanghai&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;0111110&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;16:00&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;20180310&quot;</span><span class="token punctuation">)</span>
 
  <span class="token comment">/**
 
@@ -934,9 +934,8 @@ Among<span class="token punctuation">,</span>  the <span class="token keyword">i
 <span class="token punctuation">}</span>
 </code></pre>
 <p><strong>Note:</strong></p>
-<ol>
-<li>Currently supported weather condition categories and their names and Property types</li>
-</ol>
+<p>1.
+ Currently supported weather condition categories and their names and Property types</p>
 <table>
 <thead>
 <tr>
@@ -983,9 +982,8 @@ Among<span class="token punctuation">,</span>  the <span class="token keyword">i
 </tr>
 </tbody>
 </table>
-<ol>
-<li>Property is a commonly used data structure in Tuya smart to control devices and other functions. Currently, four properties are available: Regarding Numerical Type, Enumeration Type, Boolean Type, and Timer Type (corresponding to Numeric Type, Enumeration Type and Boolean Type in the condition), each Property is provided with a different access interface. See the rules introduction section above for details.</li>
-</ol>
+<p>2.
+  Property is a commonly used data structure in Tuya smart to control devices and other functions. Currently, four properties are available: Regarding Numerical Type, Enumeration Type, Boolean Type, and Timer Type (corresponding to Numeric Type, Enumeration Type and Boolean Type in the condition), each Property is provided with a different access interface. See the <a href="#rules">rules introduction section</a> above for details.</p>
 <p><strong>[Example Codes]</strong></p>
 <pre class="language-"><code class="lang-java">TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">getSceneManagerInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getConditionList</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ITuyaDataCallback</span><span class="token operator">&lt;</span>List<span class="token generics function"><span class="token punctuation">&lt;</span>ConditionListBean<span class="token punctuation">&gt;</span></span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
       <span class="token annotation punctuation">@Override</span>
@@ -1665,7 +1663,7 @@ TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Smart scene","level":"1.12.1","depth":2,"next":{"title":"Message Center","level":"1.13","depth":1,"path":"resource/Message.md","ref":"./resource/Message.md","articles":[]},"previous":{"title":"Smart scene","level":"1.12","depth":1,"ref":"","articles":[{"title":"Smart scene","level":"1.12.1","depth":2,"path":"resource/SmartScene_Manager.md","ref":"./resource/SmartScene_Manager.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/SmartScene_Manager.md","mtime":"2018-12-22T06:04:24.536Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T02:29:45.765Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Smart scene","level":"1.12.1","depth":2,"next":{"title":"Message Center","level":"1.13","depth":1,"path":"resource/Message.md","ref":"./resource/Message.md","articles":[]},"previous":{"title":"Smart scene","level":"1.12","depth":1,"ref":"","articles":[{"title":"Smart scene","level":"1.12.1","depth":2,"path":"resource/SmartScene_Manager.md","ref":"./resource/SmartScene_Manager.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/SmartScene_Manager.md","mtime":"2018-12-26T05:51:17.929Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T05:52:34.853Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

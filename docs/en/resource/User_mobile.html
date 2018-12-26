@@ -646,7 +646,7 @@
 <p>Tuya Smart provides the mobile phone verification code login system. </p>
 <h3 id="1-use-mobile-phone-verification-code-for-login"><a name="1-use-mobile-phone-verification-code-for-login" class="plugin-anchor" href="#1-use-mobile-phone-verification-code-for-login"><i class="fa fa-link" aria-hidden="true"></i></a>(1) Use Mobile Phone Verification Code for Login</h3>
 <p><strong>[Description]</strong></p>
-<p>In the Chinese mainland, the mobile phone verification code login is supported.</p>
+<p>The mobile phone verification code login function needs to first call the verification code sending interface and send the verification code. Then call the phone verification code verification interface. Fill in the received verification code into the corresponding parameters.</p>
 <p><strong>[Code Invocation]</strong></p>
 <pre class="language-"><code class="lang-java">
 <span class="token comment">/** Obtain mobile phone verification code.
@@ -694,7 +694,7 @@ TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">
 <p>Tuya Smart provides the mobile phone password login system.</p>
 <p><strong>(1) Register Password on the Mobile Phone.</strong> </p>
 <p><strong>[Description]</strong></p>
-<p>Register password on the mobile phone. The mobile phone account registration is supported in both China and other countries.</p>
+<p>Register password on the mobile phone.</p>
 <p><strong>[Method Invocation]</strong></p>
 <pre class="language-"><code class="lang-java">
 
@@ -709,8 +709,9 @@ TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">
 
 <span class="token comment">/** Use your mobile phone to register account and password.
 * @param countryCode Country code
-* @param phone       Mobile phone password
+* @param phone       Mobile phone 
 * @param passwd      Password
+* @param code        Verification code
 * @param callback    Login callback interface. 
 */</span>
 
@@ -859,7 +860,7 @@ TuyaHomeSdk<span class="token punctuation">.</span><span class="token function">
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Use Mobile Phone","level":"1.5.2","depth":2,"next":{"title":"Use Email","level":"1.5.3","depth":2,"path":"resource/User_email.md","ref":"./resource/User_email.md","articles":[]},"previous":{"title":"Migration of a Series of SDK Accounts","level":"1.5.1","depth":2,"path":"resource/User_Sdk_Update.md","ref":"./resource/User_Sdk_Update.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/User_mobile.md","mtime":"2018-11-20T10:43:01.813Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T02:29:45.765Z"},"basePath":"..","book":{"language":"en"}});
+            gitbook.page.hasChanged({"page":{"title":"Use Mobile Phone","level":"1.5.2","depth":2,"next":{"title":"Use Email","level":"1.5.3","depth":2,"path":"resource/User_email.md","ref":"./resource/User_email.md","articles":[]},"previous":{"title":"Migration of a Series of SDK Accounts","level":"1.5.1","depth":2,"path":"resource/User_Sdk_Update.md","ref":"./resource/User_Sdk_Update.md","articles":[]},"dir":"ltr"},"config":{"plugins":["js-sequence-diagram-full@>=0.3.1","prism","-highlight","anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{"css":["prismjs/themes/prism-okaidia.css"],"lang":{"java":"java"},"ignore":["sequence"]},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"js-sequence-diagram-full":{},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"language":"en","gitbook":"*"},"file":{"path":"resource/User_mobile.md","mtime":"2018-12-26T03:59:10.903Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-26T05:52:34.853Z"},"basePath":"..","book":{"language":"en"}});
         });
     </script>
 </div>

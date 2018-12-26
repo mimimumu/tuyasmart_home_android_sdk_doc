@@ -1,5 +1,5 @@
 ### 家庭成员管理类
-ITuyaHomeMember提供了家庭成员管理接口，包括添加、删除成员，更新成员的控制权限、获取家庭成员列表等.调用方式:`TuyaHomeSdk.newMemberInstance(memberId)`(目前如果调用添加成员，此方法传参可传0，将在下个版本优化初始化和调用逻辑).家庭成员管理逻辑主要提供MemberBean用于获取成员信息的接口
+ITuyaHomeMember提供了家庭成员管理接口，包括添加、删除成员，更新成员的控制权限、获取家庭成员列表等。调用方式:`TuyaHomeSdk.getMemberInstance()` 
 ```java
 	private long homeId; //家庭id
     private String nickName;//备注名
@@ -42,11 +42,12 @@ ITuyaHomeMember提供了家庭成员管理接口，包括添加、删除成员�
 ```java
 /**
  * 更新成员备注名和权限
- * @param name 备注名 如果不更改备注名，传入从memberBean获取的nickName
+ * @param memberId 成员Id
+ * @param name 备注 
  * @param admin  是否是管理员
  * @param callback
  */
-void updateMember(String name, boolean admin, IResultCallback callback);
+void updateMember(long memberId,String name, boolean admin, IResultCallback callback);
 ```
 
 #### 查询Home下面的成员列表

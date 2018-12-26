@@ -6,7 +6,7 @@
 
 涂鸦智能Android SDK中，智能包括场景和自动化的统一管理接口
 
-`TuyaHomeSdk.TuyaHomeSdk.getSceneManagerInstance()`
+`TuyaHomeSdk.getSceneManagerInstance()`
 
 和独立操作接口
 
@@ -160,8 +160,8 @@ TuyaHomeSdk.getSceneManagerInstance().getSceneList(long homeId, new ITuyaResultC
 	
 	```
 
-rule-条件规则有四种规则:
-​	
+#### <span id="rules">rule-条件规则有四种规则:</span>
+
 
 - 数值型
 
@@ -170,6 +170,7 @@ rule-条件规则有四种规则:
 	例:
 
 	```java
+	
 	  ValueProperty tempProperty = (ValueProperty) conditionListBean.getProperty();       //数值型Property
 	
 	  int max = tempProperty.getMax();       //最大值
@@ -256,7 +257,8 @@ rule-条件规则有四种规则:
 
 	例：
 
-	```java
+```java
+	
 	TimerProperty timerProperty = (TimerProperty)conditionListBean.
 	getProperty();	//定时型property
 	
@@ -276,7 +278,7 @@ rule-条件规则有四种规则:
 	  public static TimerRule newInstance(String timeZoneId,String loops,String time,String date);
 	  
 	  //构建定时规则
-	  TimerRule timerRule = TimerRule.newInstance("Asia/Shanghai","0111110","16:00","20180310"
+	  TimerRule timerRule = TimerRule.newInstance("Asia/Shanghai","0111110","16:00","20180310")
 	  
 	  
 	  /**
@@ -306,8 +308,8 @@ rule-条件规则有四种规则:
 	  timerRule
 	  )
 	
-	```
-
+```
+	
 #### 获取条件列表
 
 ##### 【接口描述】
@@ -358,19 +360,20 @@ public IProperty getProperty() {
 
 <strong>注:</strong>
 
-1. 目前支持的天气条件类别及其名称和Property类型
-
-	| 名称     | Type       | Property Type |
-	| -------- | ---------- | ------------- |
-	| 温度     | Temp       | ValueProperty |
-	| 湿度     | humidity   | EnumProperty  |
-	| 天气     | condition  | EnumProperty  |
-	| PM2.5    | pm25       | EnumProperty  |
-	| 空气质量 | aqi        | EnumProperty  |
-	| 日出日落 | sunsetrise | EnumProperty  |
-	| 定时     | timer      | TimerProperty |
-
-2. Property是涂鸦智能中一种常用的数据结构，可以用来控制设备和其他功能。目前提供四种Property: 数值型，枚举型，布尔型和用于定时的类型(与条件中的数值型，枚举型，布尔型相对应), 每种Property提供不同的访问接口。详见前文规则介绍处。
+1、 目前支持的天气条件类别及其名称和Property类型 
+	
+| 名称     | Type       | Property Type |
+| -------- | ---------- | ------------- |
+| 温度     | Temp       | ValueProperty |
+| 湿度     | humidity   | EnumProperty  |
+| 天气     | condition  | EnumProperty  |
+| PM2.5    | pm25       | EnumProperty  |
+| 空气质量 | aqi        | EnumProperty  |
+| 日出日落 | sunsetrise | EnumProperty  |
+| 定时     | timer      | TimerProperty |
+	
+	
+2、 Property是涂鸦智能中一种常用的数据结构，可以用来控制设备和其他功能。目前提供四种Property: 数值型，枚举型，布尔型和用于定时的类型(与条件中的数值型，枚举型，布尔型相对应), 每种Property提供不同的访问接口。详见[前文规则介绍处](#rules)。
 
 ##### 【代码范例】
 

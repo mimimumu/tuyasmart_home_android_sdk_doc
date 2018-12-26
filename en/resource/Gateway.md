@@ -6,11 +6,11 @@ The gateway class encapsulates the operations of the ZigBee gateway, including c
 public interface ITuyaGateway {
      /**
       \* Send command
-      *
+      * 
       \* @param dps
       \* @param callback
       */
-     void publishDps(String localId, String dps, IResultCallback callback);
+     void publishDps(String nodeId, String dps, IResultCallback callback);
     /**
       \* Broadcast control device
       *
@@ -27,7 +27,7 @@ public interface ITuyaGateway {
       */
      void multicastDps(String localId, String dps, IResultCallback callback);
      /**
-      \* Obtain the sub-device of a gateway
+      \* Obtain the sub-device of a gateway from cloud
       *
       \* @param callback
       */
@@ -43,4 +43,47 @@ public interface ITuyaGateway {
       */
      void unRegisterSubDevListener();
 }
+```
+
+### ISubDevListener
+
+#### Description
+
+```java
+
+public interface ISubDevListener {
+
+    /**
+     * Device dps change
+     *
+     * @param nodeId
+     * @param dpStr
+     */
+    void onSubDevDpUpdate(String nodeId, String dpStr);
+
+    /**
+     * Device removed
+     */
+    void onSubDevRemoved(String devId);
+
+    /**
+     * Device added
+     *
+     * @param devId
+     */
+    void onSubDevAdded(String devId);
+
+    /**
+     * Device information updates such as name
+     */
+    void onSubDevInfoUpdate(String devId);
+    
+    /**
+     * Subdevices  online and offline status
+     */
+     
+    void onSubDevStatusChanged(List<String> onlineNodeIds, List<String> offlineNodeIds);
+}
+
+
 ```

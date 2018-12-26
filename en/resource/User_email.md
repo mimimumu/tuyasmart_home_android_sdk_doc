@@ -1,12 +1,12 @@
-# Use email Box Password for Pogin
+# Use email Box Password for Login
 
 Tuya Smart provides the email password login system.
 
-## (1) User Email Box Password Registration**
+## (1) User Email Box Password Registration
 
 **[Description]**
 
-User email password registration. The email registration is supported in China.
+User email password registration. 
 
 **[Method Invocation]**
 ```java

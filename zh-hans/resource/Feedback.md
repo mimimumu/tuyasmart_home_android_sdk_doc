@@ -346,7 +346,6 @@ void addMsg(String msg, String contact, ITuyaDataCallback<FeedbackMsgBean> callb
 ##### 【代码范例】
 
 ```java
-
 mFeedbackMsg.addMsg(
     "再次反馈问题","abc@qq.com", 
     new ITuyaDataCallback<FeedbackMsgBean>() {

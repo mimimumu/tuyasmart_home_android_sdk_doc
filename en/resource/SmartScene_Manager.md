@@ -124,7 +124,7 @@ Timer refers that when the specified time is reached, the scheduled task is exec
   */
   public static SceneCondition createTimerCondition(String display,String name,String type,Rule rule)
 ```
-There are four rules for rule-condition rules:
+#### <span id="rules">There are four rules for rule-condition rules:</span>
 
 - Numerical type
 
@@ -232,7 +232,7 @@ TimerProperty timerProperty = (TimerProperty)conditionListBean.
 public static TimerRule newInstance(String timeZoneId,String loops,String time,String date);
 
  //Create timer rule
- TimerRule timerRule = TimerRule.newInstance("Asia/Shanghai","0111110","16:00","20180310"
+ TimerRule timerRule = TimerRule.newInstance("Asia/Shanghai","0111110","16:00","20180310")
 
  /**
 
@@ -325,7 +325,8 @@ public IProperty getProperty() {
 ```
 **Note:**
 
-1. Currently supported weather condition categories and their names and Property types
+1.
+ Currently supported weather condition categories and their names and Property types
 
 | **Description**  | **Type**   | **Property Type** |
 | ---------------- | ---------- | ----------------- |
@@ -336,8 +337,9 @@ public IProperty getProperty() {
 | Air quality      | aqi        | EnumProperty      |
 | Sunrise & sunset | sunsetrise | EnumProperty      |
 | Timer            | timer      | TimerProperty     |
-
-1. Property is a commonly used data structure in Tuya smart to control devices and other functions. Currently, four properties are available: Regarding Numerical Type, Enumeration Type, Boolean Type, and Timer Type (corresponding to Numeric Type, Enumeration Type and Boolean Type in the condition), each Property is provided with a different access interface. See the rules introduction section above for details.
+	
+2.
+  Property is a commonly used data structure in Tuya smart to control devices and other functions. Currently, four properties are available: Regarding Numerical Type, Enumeration Type, Boolean Type, and Timer Type (corresponding to Numeric Type, Enumeration Type and Boolean Type in the condition), each Property is provided with a different access interface. See the [rules introduction section](#rules) above for details.
 
 **[Example Codes]**
 ```java

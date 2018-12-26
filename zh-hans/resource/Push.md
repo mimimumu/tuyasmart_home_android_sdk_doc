@@ -48,7 +48,7 @@ TuyaHomeSdk.getInstance().registerDevice(String aliasId, String pushProvider, ne
 ### 第三方通道设置
 
 如果使用了友盟第三方通道，弹窗的activity必须命名为SpecialPushActivity.
-![push](../../../../SDK%E6%96%87%E6%A1%A3/tuyasmart_home_android_sdk-master/TuyaSmartHomeSdkDemo/doc/images/push_mi.png)
+
 以小米为例，SpecialPushActivity继承自UmengNotifyClickActivity，并且完整的包名路径为`com.activity.SpecialPushActivity`.
 
 ### Push消息接收

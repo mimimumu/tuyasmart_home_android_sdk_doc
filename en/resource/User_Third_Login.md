@@ -1,4 +1,4 @@
-## Using Platform of a Third Party for Pogin
+## Using Platform of a Third Party for Login
 
 ## Login on Twitter
 
